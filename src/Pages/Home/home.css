@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.main {
+    background-color: teal;
+    width: 100%;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.header {
+    background-color: rgba(231, 255, 234, 0.8);
+    height: 10vh;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(25, 28, 26, 0.6);
+    display: flex;
+    align-items: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.menu {
+    display: flex;
+    gap: clamp(20px, 4vw, 80px);
+    cursor: pointer;
+    align-items: center;
+}
+
+.button {
+    border: none;
+    background-color: rgba(11, 139, 5, 0.521);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    height: 35px;
+    width: 170px;
+}
+
+.container {
+    min-height: 100vh;
+    background-image: url("../../Assets/images/image-background-home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.central {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+      transform: translateY(-7vh);
+}
+
+
+.name {
+    font-family: 'Island Moments', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(5rem, 12vw, 13rem);
+    font-weight: 150;
+    color: #525252;
+}
+
+.day {
+    font-family: 'Manrope', sans-serif;
+    color: rgb(25, 28, 26, 0.6);
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    letter-spacing: clamp(2px, 0.6vw, 8px);
+    font-weight: 700;
+    font-size: 1.0rem;
+}
+
+.messageHome {
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    color: #525252;
+    justify-self: center;
+    font-size: larger;
+    font-weight: 450;
+    font-size: 1.2rem;
+}
+
+
+.countdown {
+    background-color: beige;
+    height: 15vh;
+}
+
+.story {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+.events {
+    background-color: blue;
+    height: 100vh;
+}
+
+.gallery {
+    background-color: blueviolet;
+    height: 100vh;
+}
+
+.gifts {
+    background-color: yellow;
+    height: 100vh;
+}
+
+.footer {
+    background-color: yellowgreen;
+    height: 35vh;
+}
