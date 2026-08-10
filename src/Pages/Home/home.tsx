@@ -28,7 +28,7 @@ export default function HomePage() {
 
 
 
-            <section className="story">
+            <section className="story"> 
                 <h2>Nossa história</h2>
             </section>
 
