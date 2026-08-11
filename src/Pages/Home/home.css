@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -114,15 +116,97 @@
     padding-top: 5vh;
 }
 
-
 .countdown {
-    background-color: beige;
-    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    margin: 35px auto 0;
+    padding: 25px 40px;
+
+    width: fit-content;
+
+    background: #d3000000;
+    
+    border-radius: 4px;
+
+    
 }
 
-.story {
-    background-color: aquamarine;
-    height: 100vh;
+.separator {
+    font-family: "Bodoni Moda", serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(6, 78, 2, 0.726);
+    margin: 0 5px;
+    line-height: 1;
+}
+
+.icon-details{
+    background-color: white;
+}
+
+.story{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    align-items: center;
+    min-height: 100vh;
+    grid-template-areas: 
+    "img text"
+    ;
+    padding: 40px 5%;
+    gap: 90px;
+    box-sizing: border-box;
+}
+
+.titleStory{
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 500;
+    font-size: 75px;
+}
+
+.text{
+    grid-area: text;
+    width: 600px;
+}
+
+.imgText{
+    width: 400px;
+}
+
+.text p{
+    font-size: 30px;
+    font-family: 'Chivo', sans-serif;
+}
+
+.textTitle{
+    font-family: 'Manrope', sans-serif;
+    color: #726F6F;
+    letter-spacing: clamp(2px, 0.6vw, 8px);
+    font-weight: 800;
+}
+
+.nameCasal{
+    font-family: 'Island Moments', cursive;
+    font-weight: 400;
+}
+
+.icon{
+  width: 400px;
+  height: auto;
+  display: flex;
+  justify-self: center; 
+}
+
+.casal {
+    grid-area: img;
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: cover;
+    justify-self: center;
+    align-self: center;
 }
 
 .events {
