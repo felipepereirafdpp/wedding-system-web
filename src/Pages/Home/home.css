@@ -119,18 +119,8 @@
 .countdown {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
     margin: 35px auto 0;
     padding: 25px 40px;
-
-    width: fit-content;
-
-    background: #d3000000;
-    
-    border-radius: 4px;
-
-    
 }
 
 .separator {
@@ -142,61 +132,61 @@
     line-height: 1;
 }
 
-.icon-details{
+.icon-details {
     background-color: white;
 }
 
-.story{
+.story {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: white;
     align-items: center;
     min-height: 100vh;
-    grid-template-areas: 
-    "img text"
+    grid-template-areas:
+        "img text"
     ;
     padding: 40px 5%;
     gap: 90px;
     box-sizing: border-box;
 }
 
-.titleStory{
+.titleStory {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 500;
     font-size: 75px;
 }
 
-.text{
+.text {
     grid-area: text;
     width: 600px;
 }
 
-.imgText{
+.imgText {
     width: 400px;
 }
 
-.text p{
+.text p {
     font-size: 30px;
     font-family: 'Chivo', sans-serif;
 }
 
-.textTitle{
+.textTitle {
     font-family: 'Manrope', sans-serif;
     color: #726F6F;
     letter-spacing: clamp(2px, 0.6vw, 8px);
     font-weight: 800;
 }
 
-.nameCasal{
+.nameCasal {
     font-family: 'Island Moments', cursive;
     font-weight: 400;
 }
 
-.icon{
-  width: 400px;
-  height: auto;
-  display: flex;
-  justify-self: center; 
+.icon {
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-self: center;
 }
 
 .casal {
@@ -209,10 +199,12 @@
     align-self: center;
 }
 
-.events {
-    background-color: blue;
-    height: 100vh;
-}
+
+
+
+
+
+
 
 .gallery {
     background-color: blueviolet;
