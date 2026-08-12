@@ -96,26 +96,35 @@ export default function HomePage() {
 
             <section className="events">
 
-    <section className="infoEvents">
+                <div className="infoEvents">
+                    <h3 className="textEvents">
+                        SUA PRESENÇA É O NOSSO MAIOR PRESENTE
+                    </h3>
 
-        <h2 className="textEvents">
-            SUA PRESENÇA É O NOSSO MAIOR PRESENTE
-        </h2>
-        <h1 className="titleEvents">
-            CONFIRME COM A GENTE
-            <br />
-            ATÉ 20 DE NOVEMBRO
-        </h1>
-        <p className="description">
-            Preencha o formulário rápido com seu nome,
-            restrições alimentares e se vai levar acompanhante.
-        </p>
+                    <div className="second-block-Text">
+                        <h1 className="titleEvents">
+                           ESPERAMOS CELEBRAR COM VOCÊ
+                            <br />
+                            CONFIRME SUA PRESENÇA ATÉ 20 DE NOVEMBRO
+                        </h1>
+                        <p className="description">
+                            Sua presença é muito importante para nós! <br />
+                            Clique abaixo e confirme sua presença diretamente pelo WhatsApp. <br />
+                            Será um prazer celebrar esse momento com você.
+                        </p>
+                    </div>
 
-    </section>
+                    <button className="button-presence">
+                        CONFIRMAR PRESENÇA
+                    </button>
+                </div>
+                <div className="mapEvent">
 
-    <Location />
+                    <Location />
+                </div>
 
-</section>
+
+            </section>
 
 
             <section className="gallery">
