@@ -77,19 +77,25 @@ export default function HomePage() {
             </section>
 
             <section>
-                <section className="icon-details">
+                <div className="icon-details">
                     <img className="icon" src={iconImg} alt="Ícone de detalhes" />
-                </section>
+                </div>
                 <section className="story">
-                    <img className="casal" src={iconCasal} alt="" />
+
+                    
+                        <img className="casal" src={iconCasal} alt="" />
+                    
                     <section className="text">
                         <h2 className="textTitle">NOSSA HISTÓRIA</h2>
-                        <h1 className="titleStory">8 anos, um mesmo caminho</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, earum eligendi? Nemo, officiis. Unde ratione aspernatur vel qui quasi adipisci maxime fugit corporis enim porro, laborum aliquam ex nostrum deserunt fugiat. Laborum dolorum quod accusantium magnam excepturi tempora qui repudiandae deserunt </p>
-                        <img className="imgText" src={iconImg} alt="ícone de detalhes" />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A autem eius dolorum vitae repellendus ab optio adipisci. Animi molestiae deleniti, quaerat, alias porro officia dolore, optio ut maxime expedita veniam!</p>
+                        <h1 className="titleStory">8 anos, um  mesmo <br /> caminho</h1>
+                        <div className="textHistory">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, earum eligendi? Nemo, officiis. Unde ratione aspernatur vel qui quasi adipisci maxime fugit corporis enim porro, laborum aliquam ex nostrum deserunt fugiat. </span>
+                            <img className="imgText" src={iconImg} alt="ícone de detalhes" />
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. A autem eius dolorum vitae repellendus ab option,.</span>
+                        </div>
                         <h2 className="nameCasal">Thais & José</h2>
                     </section>
+
                 </section>
             </section>
 
@@ -103,7 +109,7 @@ export default function HomePage() {
 
                     <div className="second-block-Text">
                         <h1 className="titleEvents">
-                           ESPERAMOS CELEBRAR COM VOCÊ
+                            ESPERAMOS CELEBRAR COM VOCÊ
                             <br />
                             CONFIRME SUA PRESENÇA ATÉ 20 DE NOVEMBRO
                         </h1>
