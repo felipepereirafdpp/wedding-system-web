@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CountdownNumber from "./CountdownNumber";
 import iconImg from '../../Assets/images/icon.png';
 import iconCasal from '../../Assets/images/IMG_4496.png';
+import Location from "./location";
 
 
 export default function HomePage() {
@@ -65,25 +66,17 @@ export default function HomePage() {
 
                     <section className="countdown">
                         <CountdownNumber value={dias.toString()} label="DIAS" />
-
                         <span className="separator">:</span>
-
                         <CountdownNumber value={horas.toString().padStart(2, "0")} label="HORAS" />
-
                         <span className="separator">:</span>
-
                         <CountdownNumber value={minutos.toString().padStart(2, "0")} label="MIN" />
-
                         <span className="separator">:</span>
-
                         <CountdownNumber value={segundos.toString().padStart(2, "0")} label="SEG" />
                     </section>
-
                 </section>
-
             </section>
 
-           <section>
+            <section>
                 <section className="icon-details">
                     <img className="icon" src={iconImg} alt="Ícone de detalhes" />
                 </section>
@@ -102,8 +95,37 @@ export default function HomePage() {
 
 
             <section className="events">
-                <h2>Cerimônia e Recepção</h2>
+
+                <div className="infoEvents">
+                    <h3 className="textEvents">
+                        SUA PRESENÇA É O NOSSO MAIOR PRESENTE
+                    </h3>
+
+                    <div className="second-block-Text">
+                        <h1 className="titleEvents">
+                           ESPERAMOS CELEBRAR COM VOCÊ
+                            <br />
+                            CONFIRME SUA PRESENÇA ATÉ 20 DE NOVEMBRO
+                        </h1>
+                        <p className="description">
+                            Sua presença é muito importante para nós! <br />
+                            Clique abaixo e confirme sua presença diretamente pelo WhatsApp. <br />
+                            Será um prazer celebrar esse momento com você.
+                        </p>
+                    </div>
+
+                    <button className="button-presence">
+                        CONFIRMAR PRESENÇA
+                    </button>
+                </div>
+                <div className="mapEvent">
+
+                    <Location />
+                </div>
+
+
             </section>
+
 
             <section className="gallery">
                 <h2>Nossa história em fotos</h2>

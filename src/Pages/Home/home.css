@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -119,18 +119,8 @@
 .countdown {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
     margin: 35px auto 0;
     padding: 25px 40px;
-
-    width: fit-content;
-
-    background: #d3000000;
-    
-    border-radius: 4px;
-
-    
 }
 
 .separator {
@@ -142,61 +132,61 @@
     line-height: 1;
 }
 
-.icon-details{
+.icon-details {
     background-color: white;
 }
 
-.story{
+.story {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: white;
     align-items: center;
     min-height: 100vh;
-    grid-template-areas: 
-    "img text"
+    grid-template-areas:
+        "img text"
     ;
     padding: 40px 5%;
     gap: 90px;
     box-sizing: border-box;
 }
 
-.titleStory{
+.titleStory {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 500;
     font-size: 75px;
 }
 
-.text{
+.text {
     grid-area: text;
     width: 600px;
 }
 
-.imgText{
+.imgText {
     width: 400px;
 }
 
-.text p{
+.text p {
     font-size: 30px;
     font-family: 'Chivo', sans-serif;
 }
 
-.textTitle{
+.textTitle {
     font-family: 'Manrope', sans-serif;
     color: #726F6F;
     letter-spacing: clamp(2px, 0.6vw, 8px);
     font-weight: 800;
 }
 
-.nameCasal{
+.nameCasal {
     font-family: 'Island Moments', cursive;
     font-weight: 400;
 }
 
-.icon{
-  width: 400px;
-  height: auto;
-  display: flex;
-  justify-self: center; 
+.icon {
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-self: center;
 }
 
 .casal {
@@ -208,11 +198,181 @@
     justify-self: center;
     align-self: center;
 }
-
-.events {
-    background-color: blue;
-    height: 100vh;
+.events{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #16241A;
+    padding: 60px 20px;
 }
+
+.infoEvents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12%    ;
+}
+.textEvents{
+  
+    color: #cecece;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 7px;
+    font-size: 100%;
+}
+.mapEvent{
+    display: flex;
+    justify-content: space-around;
+    
+    flex-direction: column;
+  
+}
+.location {
+    width: 110%;
+    max-width: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.titleEvents{
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 220%;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+
+.location-map-frame {
+    width: 100%;
+    padding: 3px;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #FFFFFF, #F0F0F0 50%, #FFFFFF 100%);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.location-map {
+  width: 100%;
+  height: 260px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  filter: saturate(0.9) contrast(1.02);
+}
+
+
+.location-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(224, 200, 170, 0.16);
+    border-radius: 24px;
+    padding: 26px 24px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.location-info-item{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+}
+
+.location-info-item + .location-info-item {
+    border-top: 1px solid rgba(224, 200, 170, 0.12);
+}
+
+.location-info-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(121, 131, 118, 0.336);
+    border: 1px solid rgba(224, 200, 170, 0.16);
+}
+
+.location-info-icon svg {
+    width: 17px;
+    height: 17px;
+    stroke: #FFFFFF;
+}
+
+.location-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.location-info span{
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #E2EAE6;
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+}
+
+.location-info p{
+    margin: 0;
+    font-size: 15px;
+    color: #A8A6A6;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+}
+
+
+.location-maps-link:hover {
+    opacity: 0.75;
+}
+.description{
+   text-align: center;
+    font-size: 130%;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+.second-block-Text{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button-presence{
+    width: 45%;
+    height: 11%;
+    background-color: transparent;
+    border: 1px solid white;
+    font-weight: 800;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    letter-spacing: 10%;
+    font-size: 130%;
+    border-radius: 2%;
+    z-index: 999;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.button-presence:hover{
+    cursor: pointer;
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
+}
+
 
 .gallery {
     background-color: blueviolet;
