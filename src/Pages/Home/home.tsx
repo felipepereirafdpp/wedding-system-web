@@ -28,6 +28,16 @@ export default function HomePage() {
     const minutos = Math.floor((tempo / (1000 * 60)) % 60);
     const segundos = Math.floor((tempo / 1000) % 60);
 
+    const abrirWhatsApp = () => {
+        const numero = "5516997179656";
+        const mensagem = "Olá!Gostaria de confirmara presença no casamento da Thais e do Jose .";
+
+        const link = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+        window.location.href = link;
+    };
+
+
     return (
         <main className="main">
 
@@ -41,10 +51,11 @@ export default function HomePage() {
                     />
 
                     <section className="menu">
-                        <a href="#historia">NOSSA HISTÓRIA</a>
+                        <a href="#nossa-historia">NOSSA HISTÓRIA</a>
                         <a href="#galeria">GALERIA</a>
                         <a href="#presentes">PRESENTES</a>
-                        <button className="button">CONFIRMAR PRESENÇA</button>
+
+                        <button onClick={() => document.getElementById("evento")?.scrollIntoView()} className="button"> CONFIRMAR PRESENÇA</button>
                     </section>
                 </section>
 
@@ -74,7 +85,7 @@ export default function HomePage() {
                 </section>
             </section>
 
-            <section>
+            <section id="nossa-historia">
                 <div className="icon-details">
                     <img className="icon" src={iconImg} alt="Ícone de detalhes" />
                 </div>
@@ -98,7 +109,7 @@ export default function HomePage() {
             </section>
 
 
-            <section className="events">
+            <section id="evento" className="events">
 
                 <div className="infoEvents">
                     <h3 className="textEvents">
@@ -118,7 +129,7 @@ export default function HomePage() {
                         </p>
                     </div>
 
-                    <button className="button-presence">
+                    <button onClick={abrirWhatsApp} className="button-presence">
                         CONFIRMAR PRESENÇA
                     </button>
                 </div>
@@ -131,7 +142,7 @@ export default function HomePage() {
             </section>
 
 
-            <section className="gallery">
+            <section id="galeria" className="gallery">
                 <h2>Nossa história em fotos</h2>
             </section>
 
@@ -146,3 +157,5 @@ export default function HomePage() {
         </main>
     );
 }
+
+
