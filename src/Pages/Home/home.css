@@ -1,14 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+/* ===== PALETA DE CORES E TOKENS PADRÃO ===== */
+:root {
+    --color-green-dark: #2E5A24;   /* verde principal (texto ativo, botão hover) */
+    --color-green-mid: #3B6B2E;    /* verde secundário (hover de links, sublinhado) */
+    --color-green-soft: 59, 107, 46; /* mesmo verde em RGB, pra usar em rgba() */
+
+    --color-text: #2E2E2E;         /* texto principal do header */
+    --color-text-muted: #3B3B3B;   /* texto dos links do menu */
+    --color-white: #ffffff;
+
+    --font-family: 'Manrope', sans-serif;
+    --font-size-menu: 0.85rem;     /* ~13.6px, discreto */
+    --font-size-button: 0.85rem;   /* igual ao menu */
+
+    --radius-pill: 100px;
+}
 
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-
 .main {
-    background-color: teal;
+    background-color: #ffffff;
     width: 100%;
 }
 
@@ -19,52 +35,147 @@
 }
 
 .header {
-    background-color: #3B6B2E;
-    height: 8vh;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.65) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.5) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+    position: absolute; 
+    
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 1280px);
+
+    height: 7.5vh;
+    min-height: 64px;
+
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+
     font-family: 'Manrope', sans-serif;
     font-size: 1.2vh;
-    color: white;
-    display: flex;
-    align-items: center;
+    color: #2E2E2E;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 clamp(24px, 3vw, 48px);
+
+    z-index: 1000;
+
+    transition: 
+        box-shadow 0.4s ease, 
+        opacity 0.35s ease, 
+        transform 0.35s ease;
 }
+
+.header:hover {
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+}
+.header.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+    pointer-events: none;
+}
+
 
 .menu {
     display: flex;
-    gap: clamp(20px, 4vw, 80px);
+    gap: clamp(20px, 3.5vw, 64px);
     cursor: pointer;
-    font-size: 90%;
+    font-size: 115%;
     z-index: 999;
     align-items: center;
 }
 
+.menu a,
+.menu span {
+    position: relative;
+    color: #3B3B3B;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    font-size: 125%;
+
+    
+}
+
+.menu a::after,
+.menu span::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3B6B2E, transparent);
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+    
+}
+
+.menu a:hover,
+.menu span:hover {
+    color: #3B6B2E;
+
+}
+
+.menu a:hover::after,
+.menu span:hover::after {
+    width: 100%;
+}
+
+
 .button {
-    border: none;
-    background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid rgba(var(--color-green-soft), 0.45);
+    background-color: rgba(var(--color-green-soft), 0.08);
+
     cursor: pointer;
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    height: 35px;
-    width: 190px;
-    border-radius: 4px;
+    color: var(--color-green-dark);
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: var(--font-size-button);
+
+    height: 38px;
+    padding: 0 clamp(18px, 2vw, 26px);
+    white-space: nowrap;
+
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.4px;
     z-index: 999;
-    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        color 0.4s ease;
 }
 
 .button:hover {
-    background-color: rgba(11, 139, 5, 0.85);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(11, 139, 5, 0.35);
+    background-color: rgba(var(--color-green-soft), 0.8);
+    border-color: rgba(var(--color-green-soft), 0.8);
+    color: var(--color-white);
 }
 
 .button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(21, 212, 11, 0.3);
+    background-color: var(--color-green-dark);
+    border-color: var(--color-green-dark);
 }
 
 .container {
@@ -84,7 +195,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    transform: translateY(-7vh);
+    transform: translateY(0vh);
 
 }
 

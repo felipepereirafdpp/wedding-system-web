@@ -41,12 +41,10 @@ export default function HomePage() {
                     />
 
                     <section className="menu">
-                        <h2>NOSSA HISTÓRIA</h2>
-                        <h2>GALERIA</h2>
-                        <h2>PRESENTES</h2>
-                        <button className="button">
-                            CONFIRMAR PRESENÇA
-                        </button>
+                        <a href="#historia">NOSSA HISTÓRIA</a>
+                        <a href="#galeria">GALERIA</a>
+                        <a href="#presentes">PRESENTES</a>
+                        <button className="button">CONFIRMAR PRESENÇA</button>
                     </section>
                 </section>
 
@@ -82,9 +80,9 @@ export default function HomePage() {
                 </div>
                 <section className="story">
 
-                    
-                        <img className="casal" src={iconCasal} alt="" />
-                    
+
+                    <img className="casal" src={iconCasal} alt="" />
+
                     <section className="text">
                         <h2 className="textTitle">NOSSA HISTÓRIA</h2>
                         <h1 className="titleStory">8 anos, um  mesmo <br /> caminho</h1>
