@@ -34,7 +34,6 @@
     object-fit: contain;
 }
 
-/* ===== HEADER EM VIDRO — não fixo, some no scroll ===== */
 .header {
     background: linear-gradient(
         135deg,

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 💍 Wedding System — Front-End
 
 `React` `TypeScript` `Vite` `HTML5` `CSS3` `REST API` `Evo Code` `Status: Em desenvolvimento`
@@ -49,6 +50,8 @@ O projeto foi estruturado buscando manter uma organização clara entre páginas
 🧩 Types
    → Tipagens utilizadas pela aplicação
 =======
+=======
+>>>>>>> origin/develop
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -124,4 +127,7 @@ export default defineConfig([
 ])
 
 ```
+<<<<<<< HEAD
 >>>>>>> 1f1b947942562d0ba9b0bb02ef28d0c781f8c703
+=======
+>>>>>>> origin/develop
