@@ -1,18 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
 /* ===== PALETA DE CORES E TOKENS PADRÃO ===== */
 :root {
-    --color-green-dark: #2E5A24;   /* verde principal (texto ativo, botão hover) */
-    --color-green-mid: #3B6B2E;    /* verde secundário (hover de links, sublinhado) */
-    --color-green-soft: 59, 107, 46; /* mesmo verde em RGB, pra usar em rgba() */
+    --color-green-dark: #2E5A24;
+    /* verde principal (texto ativo, botão hover) */
+    --color-green-mid: #3B6B2E;
+    /* verde secundário (hover de links, sublinhado) */
+    --color-green-soft: 59, 107, 46;
+    /* mesmo verde em RGB, pra usar em rgba() */
 
-    --color-text: #2E2E2E;         /* texto principal do header */
-    --color-text-muted: #3B3B3B;   /* texto dos links do menu */
+    --color-text: #2E2E2E;
+    /* texto principal do header */
+    --color-text-muted: #3B3B3B;
+    /* texto dos links do menu */
     --color-white: #ffffff;
 
     --font-family: 'Manrope', sans-serif;
-    --font-size-menu: 0.85rem;     /* ~13.6px, discreto */
-    --font-size-button: 0.85rem;   /* igual ao menu */
+    --font-size-menu: 0.85rem;
+    /* ~13.6px, discreto */
+    --font-size-button: 0.85rem;
+    /* igual ao menu */
 
     --radius-pill: 100px;
 }
@@ -35,17 +43,15 @@
 }
 
 .header {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.65) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0.5) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.65) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.5) 100%);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
 
-    position: absolute; 
-    
+    position: absolute;
+
     top: 24px;
     left: 50%;
     transform: translateX(-50%);
@@ -57,7 +63,7 @@
     border-radius: 100px;
     border: 1px solid rgba(255, 255, 255, 0.6);
 
-    box-shadow: 
+    box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.08),
         0 2px 8px rgba(0, 0, 0, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.8),
@@ -74,19 +80,20 @@
 
     z-index: 1000;
 
-    transition: 
-        box-shadow 0.4s ease, 
-        opacity 0.35s ease, 
+    transition:
+        box-shadow 0.4s ease,
+        opacity 0.35s ease,
         transform 0.35s ease;
 }
 
 .header:hover {
-    box-shadow: 
+    box-shadow:
         0 12px 40px rgba(0, 0, 0, 0.1),
         0 4px 12px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.9),
         inset 0 -1px 0 rgba(0, 0, 0, 0.03);
 }
+
 .header.hide {
     opacity: 0;
     transform: translateX(-50%) translateY(-20px);
@@ -114,7 +121,7 @@
     transition: color 0.3s ease;
     font-size: 125%;
 
-    
+
 }
 
 .menu a::after,
@@ -128,7 +135,7 @@
     background: linear-gradient(90deg, transparent, #3B6B2E, transparent);
     transform: translateX(-50%);
     transition: width 0.35s ease;
-    
+
 }
 
 .menu a:hover,
@@ -246,24 +253,25 @@
     margin: 0 5px;
     line-height: 1;
 }
-.icon-details{
-    
-    
+
+.icon-details {
+
+
     background-color: #FFFFFF;
 }
 
 
-.icon-details img{
-   
+.icon-details img {
+
     width: 300px;
     height: 30px;
-    
+
     object-fit: contain;
-   
+
 }
 
 
- .story {
+.story {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: white;
@@ -275,7 +283,8 @@
     padding: 40px 5%;
     gap: 90px;
     box-sizing: border-box;
-} 
+}
+
 .titleStory {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 500;
@@ -288,17 +297,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .text {
     grid-area: text;
     display: flex;
     flex-direction: column;
-    gap: 10px
-    ;
+    gap: 10px;
     width: 400px;
-   ;
+    ;
 }
 
 .imgText {
@@ -322,7 +330,7 @@
     font-family: 'Island Moments', cursive;
     font-weight: 400;
     font-size: 180%;
-   
+
 }
 
 .icon {
@@ -354,6 +362,7 @@
     letter-spacing: 7px;
     font-size: 100%;
 }
+
 .casal {
     grid-area: img;
     width: 90%;
@@ -373,6 +382,7 @@
 .casal:hover {
     rotate: 0deg;
 }
+
 .mapEvent {
     display: flex;
     justify-content: space-around;
@@ -532,8 +542,66 @@
 
 
 .gallery {
-    background-color: blueviolet;
+    background-color: white;
     height: 100vh;
+}
+
+.headerGalery {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 160%;
+}
+
+.textGalery {
+    font-family: 'Manrope', sans-serif;
+    color: rgb(76, 122, 90);
+    font-size: 85%;
+    letter-spacing: 30%;
+}
+
+.titleGalery {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: rgb(22, 36, 26);
+}
+
+.containerGalery {
+    display: grid;
+    height: 93%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas: 
+    'img1 img2 img5'
+    'img3 img4 img5'
+    ;
+}
+
+.img1{
+    grid-area: img1;
+    background-color: yellow;
+}
+
+.img2{
+    grid-area: img2;
+    background-color: #16241A;
+}
+
+.img3{
+    grid-area: img3;
+    background-color: #2E5A24;
+}
+
+.img4{
+    grid-area: img4;
+    background-color: pink;
+}
+
+.img5{
+    grid-area: img5;
+    background-color: red;
 }
 
 .gifts {
