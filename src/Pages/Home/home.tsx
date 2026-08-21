@@ -143,11 +143,27 @@ export default function HomePage() {
 
 
             <section id="galeria" className="gallery">
-                <h2>Nossa história em fotos</h2>
-            </section>
-
-            <section className="gifts">
-                <h2>Lista de presentes</h2>
+                <section className="headerGalery">
+                    <h2 className="textGalery">REGISTROS</h2>
+                    <h1 className="titleGalery">ALGUNS MOMENTOS NOSSOS</h1>
+                </section>
+                <section className="containerGalery">
+                    <section className="img1">
+                        <h1>imagem 1</h1>
+                    </section>
+                    <section className="img2">
+                        <h1>imagem 2</h1>
+                    </section>
+                    <section className="img3">
+                        <h1>imagem 3</h1>
+                    </section>
+                    <section className="img4">
+                        <h1>imagem 4</h1>
+                    </section>
+                    <section className="img5">
+                        <h1>imagem 5</h1>
+                    </section>
+                </section>
             </section>
 
             <section className="footer">
