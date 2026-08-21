@@ -212,7 +212,7 @@ export default function HomePage() {
                 {/* Divisão inferior */}
                 <section className="baseFooter">
                     <hr className="linhaFooter" />
-                    <p className="direitos">© 2026 Todos os direitos reservados</p>
+                    <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
                 </section>
             </section>
 
