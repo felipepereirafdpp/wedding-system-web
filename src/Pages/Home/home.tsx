@@ -2,7 +2,13 @@ import "./home.css";
 import { useEffect, useState } from "react";
 import CountdownNumber from "./CountdownNumber";
 import iconImg from '../../Assets/images/icon.png';
-import iconCasal from '../../Assets/images/IMG_4496.png';
+import iconCasal from '../../Assets/images/IMG_4496.png'
+import imgCasal1 from '../../Assets/images/img1.webp';
+import imgCasal2 from '../../Assets/images/img2.webp';
+import imgCasal3 from '../../Assets/images/img3.webp';
+import imgCasal4 from '../../Assets/images/img4.webp';
+import imgCasal5 from '../../Assets/images/img5.webp';
+import logoFooter from '../../Assets/images/logoFooter.png';
 import Location from "./location";
 
 
@@ -149,29 +155,68 @@ export default function HomePage() {
                 </section>
                 <section className="containerGalery">
                     <section className="img1">
-                        <h1>imagem 1</h1>
+                        <section className="imgTeste1">
+                            <img className="geralTeste" src={imgCasal1} alt="" />
+                        </section>
                     </section>
                     <section className="img2">
-                        <h1>imagem 2</h1>
+                        <section className="imgTeste2">
+                            <img className="geralTeste" src={imgCasal2} alt="" />
+                        </section>
                     </section>
                     <section className="img3">
-                        <h1>imagem 3</h1>
+                        <section className="imgTeste3">
+                            <img className="geralTeste" src={imgCasal4} alt="" />
+                        </section>
                     </section>
                     <section className="img4">
-                        <h1>imagem 4</h1>
+                        <section className="imgTeste4">
+                            <img className="geralTeste4" src={imgCasal5} alt="" />
+                        </section>
                     </section>
                     <section className="img5">
-                        <h1>imagem 5</h1>
+                        <section className="imgTeste5">
+                            <img className="geralTeste" src={imgCasal3} alt="" />
+                        </section>
                     </section>
                 </section>
             </section>
 
             <section className="footer">
-                <h2>Esperamos você!</h2>
+                <section className="conteudoFooter">
+                    <section className="siglaFooter">
+                        <img className="footerIMG" src={logoFooter} alt="Logo" />
+                    </section>
+
+                    <section className="containerFooter">
+                        <section className="navegacao">
+                            <h1>NAVEGAÇÃO</h1>
+                            <h2><a href="#nossa-historia">Nossa História</a> </h2>
+                            <h2><a href="#galeria">Galeria</a></h2>
+                            <h2><a href="#presentes">Presente</a></h2>
+                        </section>
+
+                        <section className="contato">
+                            <h1>CONTATO</h1>
+                            <h2>thaispastori@gmail.com</h2>
+                            <h2>1699990000</h2>
+                        </section>
+
+                        <section className="presentes">
+                            <h1>LISTA DE PRESENTES</h1>
+                            <h2>Ver lista de presentes ➝</h2>
+                        </section>
+                    </section>
+                </section>
+
+                {/* Divisão inferior */}
+                <section className="baseFooter">
+                    <hr className="linhaFooter" />
+                    <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
+                </section>
             </section>
 
         </main>
     );
 }
-
 
