@@ -558,7 +558,7 @@
 .textGalery {
     font-family: 'Manrope', sans-serif;
     color: rgb(76, 122, 90);
-    font-size: 85%;
+    font-size: 60%;
     letter-spacing: 30%;
 }
 
@@ -570,38 +570,97 @@
 
 .containerGalery {
     display: grid;
-    height: 93%;
+    height: 83%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr auto;
-    grid-template-areas: 
-    'img1 img2 img5'
-    'img3 img4 img5'
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        'img1 img2 img5'
+        'img3 img4 img5'
     ;
 }
 
-.img1{
+.img1 {
     grid-area: img1;
-    background-color: yellow;
+    display: flex;
+    justify-content: center;
 }
 
-.img2{
-    grid-area: img2;
-    background-color: #16241A;
-}
-
-.img3{
-    grid-area: img3;
-    background-color: #2E5A24;
-}
-
-.img4{
-    grid-area: img4;
+.imgTeste1 {
     background-color: pink;
+    width: 80%;
+    height: 95%;
+    display: flex;
+    align-self: center;
 }
 
-.img5{
+.img2 {
+    grid-area: img2;
+    display: flex;
+    justify-content: center;
+}
+
+.imgTeste2 {
+    background-color: pink;
+    width: 80%;
+    height: 95%;
+    display: flex;
+    align-self: center;
+}
+
+.img3 {
+    grid-area: img3;
+    display: flex;
+    justify-content: center;
+}
+
+.imgTeste3 {
+    background-color: pink;
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-self: center;
+}
+
+.img4 {
+    grid-area: img4;
+    display: flex;
+    justify-content: center;
+
+}
+
+.geralTeste {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.geralTeste4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.imgTeste4 {
+    background-color: pink;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-self: center
+}
+
+.img5 {
     grid-area: img5;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgTeste5 {
+    width: 84%;
+    height: 95%;
+    background-color: pink;
 }
 
 .gifts {
@@ -610,6 +669,38 @@
 }
 
 .footer {
-    background-color: yellowgreen;
+    background-color: rgb(22, 36, 26);
     height: 35vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.siglaFooter {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    
+}
+
+.footer h2 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+}
+
+.footer h1 {
+    color: rgb(169, 201, 172);
+    font-family: 'Manrope', sans-serif;
+}
+
+.navegação{
+
+}
+
+.contatos {
+
+}
+
+.presentes {
+    
 }
