@@ -183,28 +183,40 @@ export default function HomePage() {
             </section>
 
             <section className="footer">
-                <section className="siglaFooter">
-                    <img className="footerIMG" src={logoFooter} alt="" />
+                <section className="conteudoFooter">
+                    <section className="siglaFooter">
+                        <img className="footerIMG" src={logoFooter} alt="Logo" />
+                    </section>
+
+                    <section className="containerFooter">
+                        <section className="navegacao">
+                            <h1>NAVEGAÇÃO</h1>
+                            <h2><a href="#nossa-historia">Nossa História</a> </h2>
+                            <h2><a href="#galeria">Galeria</a></h2>
+                            <h2><a href="#presentes">Presente</a></h2>
+                        </section>
+
+                        <section className="contato">
+                            <h1>CONTATO</h1>
+                            <h2>thaispastori@gmail.com</h2>
+                            <h2>1699990000</h2>
+                        </section>
+
+                        <section className="presentes">
+                            <h1>LISTA DE PRESENTES</h1>
+                            <h2>Ver lista de presentes ➝</h2>
+                        </section>
+                    </section>
                 </section>
-                <section className="navegação">
-                    <h1>NAVEGAÇÃO</h1>
-                    <h2>Nossa História</h2>
-                    <h2>Galeria</h2>
-                    <h2>Presente</h2>
-                </section>
-                <section className="contato">
-                    <h1>CONTATO</h1>
-                    <h2>thaispastori@gmail.com</h2>
-                    <h2>1699990000</h2>
-                </section>
-                <section className="presentes">
-                    <h1>LISTA DE PRESENTES</h1>
-                    <h2>Ver lista de presentes ➝</h2>
+
+                {/* Divisão inferior */}
+                <section className="baseFooter">
+                    <hr className="linhaFooter" />
+                    <p className="direitos">© 2026 Todos os direitos reservados</p>
                 </section>
             </section>
 
         </main>
     );
 }
-
 
