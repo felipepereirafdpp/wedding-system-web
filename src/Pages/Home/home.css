@@ -542,17 +542,23 @@
 
 
 .gallery {
-    background-color: white;
-    height: 100vh;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 .headerGalery {
-    height: 85px;
-    display: flex;
-    justify-content: center;
+    width: 100%;
     text-align: center;
-    flex-direction: column;
-    font-size: 160%;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.containerGalery {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
 }
 
 .textGalery {
@@ -568,183 +574,84 @@
     color: rgb(22, 36, 26);
 }
 
-.containerGalery {
-    display: grid;
-    height: 83%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-        'img1 img2 img5'
-        'img3 img4 img5'
-    ;
-}
-
-.img1 {
-    grid-area: img1;
-    display: flex;
-    justify-content: center;
-}
-
-.imgTeste1 {
-    background-color: pink;
-    width: 80%;
-    height: 95%;
-    display: flex;
-    align-self: center;
-}
-
-.img2 {
-    grid-area: img2;
-    display: flex;
-    justify-content: center;
-}
-
-.imgTeste2 {
-    background-color: pink;
-    width: 80%;
-    height: 95%;
-    display: flex;
-    align-self: center;
-}
-
-.img3 {
-    grid-area: img3;
-    display: flex;
-    justify-content: center;
-}
-
-.imgTeste3 {
-    background-color: pink;
-    width: 80%;
-    height: 90%;
-    display: flex;
-    align-self: center;
-}
-
-.img4 {
-    grid-area: img4;
-    display: flex;
-    justify-content: center;
-
-}
-
-.geralTeste {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right center;
-}
-
-.geralTeste4 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-}
-
-.imgTeste4 {
-    background-color: pink;
-    width: 90%;
-    height: 90%;
-    display: flex;
-    align-self: center
-}
-
-.img5 {
-    grid-area: img5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.imgTeste5 {
-    width: 84%;
-    height: 95%;
-    background-color: pink;
-}
-
-.gifts {
-    background-color: yellow;
-    height: 100vh;
-}
 
 .footer {
-  background-color: rgb(22, 36, 26);
-  padding: 40px 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
+    background-color: rgb(22, 36, 26);
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .conteudoFooter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px; /* Garante distância da linha */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    /* Garante distância da linha */
 }
 
 .siglaFooter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
 }
 
 .footerIMG {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .containerFooter {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  gap: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 2rem;
 }
 
 /* Typography */
 .footer h1 {
-  color: rgb(169, 201, 172);
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+    color: rgb(169, 201, 172);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
-.footer h2{
-  color: white;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 0.95rem;
-  margin-bottom: 0.6rem;
+.footer h2 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
 }
 
 /* Estrutura das Seções Internas */
 .navegacao a,
 .contato,
 .presentes {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: white;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
 }
 
 /* Estilização da Linha e Base */
 .baseFooter {
-  width: 100%;
+    width: 100%;
 }
 
 .linhaFooter {
-  border: none;
-  border-top: 1px solid white; 
-  width: 100%;
-  margin-bottom: 15px;
+    border: none;
+    border-top: 1px solid white;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .direitos {
-  color: rgba(255, 255, 255, 0.6);
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.6rem;
-  text-align: right;
-  margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.6rem;
+    text-align: right;
+    margin: 0;
 }
-
