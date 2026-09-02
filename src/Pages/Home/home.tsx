@@ -10,6 +10,8 @@ import imgCasal4 from '../../Assets/images/img4.webp';
 import imgCasal5 from '../../Assets/images/img5.webp';
 import logoFooter from '../../Assets/images/logoFooter.png';
 import Location from "./location";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
 
 export default function HomePage() {
@@ -42,6 +44,90 @@ export default function HomePage() {
 
         window.location.href = link;
     };
+
+    const itemData = [
+        {
+            img: imgCasal1,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal2,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal3,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal4,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal5,
+            title: 'Hats',
+        },
+        {
+            img: imgCasal1,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal2,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal3,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal4,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal5,
+            title: 'Hats',
+        },
+        {
+            img: imgCasal1,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal2,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal3,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal4,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal5,
+            title: 'Hats',
+        },
+        {
+            img: imgCasal1,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal2,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal3,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal4,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal5,
+            title: 'Hats',
+        },
+
+    ];
 
 
     return (
@@ -154,31 +240,33 @@ export default function HomePage() {
                     <h1 className="titleGalery">ALGUNS MOMENTOS NOSSOS</h1>
                 </section>
                 <section className="containerGalery">
-                    <section className="img1">
-                        <section className="imgTeste1">
-                            <img className="geralTeste" src={imgCasal1} alt="" />
-                        </section>
-                    </section>
-                    <section className="img2">
-                        <section className="imgTeste2">
-                            <img className="geralTeste" src={imgCasal2} alt="" />
-                        </section>
-                    </section>
-                    <section className="img3">
-                        <section className="imgTeste3">
-                            <img className="geralTeste" src={imgCasal4} alt="" />
-                        </section>
-                    </section>
-                    <section className="img4">
-                        <section className="imgTeste4">
-                            <img className="geralTeste4" src={imgCasal5} alt="" />
-                        </section>
-                    </section>
-                    <section className="img5">
-                        <section className="imgTeste5">
-                            <img className="geralTeste" src={imgCasal3} alt="" />
-                        </section>
-                    </section>
+                    <ImageList
+                        variant="masonry"
+                        cols={4}
+                        gap={12}
+                        sx={{
+                            width: '100%',
+                            margin: 0,
+                        }}
+                    >
+                        {itemData.map((item, index) => (
+                            <ImageListItem
+                                key={`${item.img}-${index}`}
+                                sx={{ width: '100%' }}
+                            >
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    loading="lazy"
+                                    style={{
+                                        width: '100%',
+                                        display: 'block',
+                                        borderRadius: '4px',
+                                    }}
+                                />
+                            </ImageListItem>
+                        ))}
+                    </ImageList>
                 </section>
             </section>
 
@@ -209,7 +297,7 @@ export default function HomePage() {
                     </section>
                 </section>
 
-                {/* Divisão inferior */}
+
                 <section className="baseFooter">
                     <hr className="linhaFooter" />
                     <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
