@@ -106,7 +106,26 @@ export default function HomePage() {
             img: imgCasal5,
             title: 'Hats',
         },
-
+        {
+            img: imgCasal1,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal2,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal3,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal4,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal5,
+            title: 'Hats',
+        },
 
     ];
 
@@ -223,22 +242,19 @@ export default function HomePage() {
                 <section className="containerGalery">
                     <ImageList
                         variant="masonry"
-                        cols={3}
+                        cols={4}
+                        gap={12}
                         sx={{
                             width: '100%',
-                            height: '100%',
-                            overflowY: 'hidden',
-                            overflowX: 'auto',
-                            padding: '8px',
+                            margin: 0,
                         }}
                     >
-                        {itemData.map((item) => (
+                        {itemData.map((item, index) => (
                             <ImageListItem
-                                key={item.img}
+                                key={`${item.img}-${index}`}
                                 sx={{ width: '100%' }}
                             >
                                 <img
-                                    
                                     src={item.img}
                                     alt={item.title}
                                     loading="lazy"
@@ -281,7 +297,7 @@ export default function HomePage() {
                     </section>
                 </section>
 
-                {/* Divisão inferior */}
+
                 <section className="baseFooter">
                     <hr className="linhaFooter" />
                     <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
