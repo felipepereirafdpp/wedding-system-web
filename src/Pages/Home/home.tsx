@@ -10,11 +10,12 @@ import imgCasal2 from '../../Assets/images/img2.webp';
 import imgCasal3 from '../../Assets/images/img3.webp';
 import imgCasal4 from '../../Assets/images/img4.webp';
 import imgCasal5 from '../../Assets/images/img5.webp';
-import logoFooter from '../../Assets/images/logoFooter.png';
 import Location from "./location";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header/header";
+import Footer from "../../Components/Footer/footer";
+
 
 
 export default function HomePage() {
@@ -132,29 +133,13 @@ export default function HomePage() {
 
     ];
 
-    const navigate = useNavigate();
-
-
     return (
         <main className="main">
 
             <section className="container">
 
-                <section className="header">
-                    <img
-                        className="logo"
-                        src="https://cdn.awsli.com.br/598/598767/produto/348894699/sua-logo-aqui-2-i3b0147lmi.png"
-                        alt=""
-                    />
+                <Header/>
 
-                    <section className="menu">
-                        <a href="#nossa-historia">NOSSA HISTÓRIA</a>
-                        <a href="#galeria">GALERIA</a>
-                        <a onClick={() => navigate("/presenteScreen")}>PRESENTES</a>
-
-                        <button onClick={() => document.getElementById("evento")?.scrollIntoView()} className="button"> CONFIRMAR PRESENÇA</button>
-                    </section>
-                </section>
 
                 <section className="central">
 
@@ -275,41 +260,11 @@ export default function HomePage() {
                 </section>
             </section>
 
-            <section className="footer">
-                <section className="conteudoFooter">
-                    <section className="siglaFooter">
-                        <img className="footerIMG" src={logoFooter} alt="Logo" />
-                    </section>
-
-                    <section className="containerFooter">
-                        <section className="navegacao">
-                            <h1>NAVEGAÇÃO</h1>
-                            <h2><a href="#nossa-historia">Nossa História</a> </h2>
-                            <h2><a href="#galeria">Galeria</a></h2>
-                            <h2><a onClick={() => navigate("/presenteScreen")}>Presente</a></h2>
-                        </section>
-
-                        <section className="contato">
-                            <h1>CONTATO</h1>
-                            <h2>thaispastori@gmail.com</h2>
-                            <h2>1699990000</h2>
-                        </section>
-
-                        <section className="presentes">
-                            <h1>LISTA DE PRESENTES</h1>
-                            <a onClick={() => navigate("/presenteScreen")}>Ver lista de presentes ➝</a>
-                        </section>
-                    </section>
-                </section>
-
-
-                <section className="baseFooter">
-                    <hr className="linhaFooter" />
-                    <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
-                </section>
-            </section>
+              <Footer/>
+              
 
         </main>
+
     );
 }
 
