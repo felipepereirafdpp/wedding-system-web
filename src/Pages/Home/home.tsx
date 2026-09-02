@@ -1,3 +1,5 @@
+'use client';
+
 import "./home.css";
 import { useEffect, useState } from "react";
 import CountdownNumber from "./CountdownNumber";
@@ -12,6 +14,7 @@ import logoFooter from '../../Assets/images/logoFooter.png';
 import Location from "./location";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { useNavigate } from "react-router-dom";
 
 
 export default function HomePage() {
@@ -129,6 +132,8 @@ export default function HomePage() {
 
     ];
 
+    const navigate = useNavigate();
+
 
     return (
         <main className="main">
@@ -145,7 +150,7 @@ export default function HomePage() {
                     <section className="menu">
                         <a href="#nossa-historia">NOSSA HISTÓRIA</a>
                         <a href="#galeria">GALERIA</a>
-                        <a href="#presentes">PRESENTES</a>
+                        <a onClick={() => navigate("/presenteScreen")}>PRESENTES</a>
 
                         <button onClick={() => document.getElementById("evento")?.scrollIntoView()} className="button"> CONFIRMAR PRESENÇA</button>
                     </section>
@@ -281,7 +286,7 @@ export default function HomePage() {
                             <h1>NAVEGAÇÃO</h1>
                             <h2><a href="#nossa-historia">Nossa História</a> </h2>
                             <h2><a href="#galeria">Galeria</a></h2>
-                            <h2><a href="#presentes">Presente</a></h2>
+                            <h2><a onClick={() => navigate("/presenteScreen")}>Presente</a></h2>
                         </section>
 
                         <section className="contato">
@@ -292,7 +297,7 @@ export default function HomePage() {
 
                         <section className="presentes">
                             <h1>LISTA DE PRESENTES</h1>
-                            <h2>Ver lista de presentes ➝</h2>
+                            <a onClick={() => navigate("/presenteScreen")}>Ver lista de presentes ➝</a>
                         </section>
                     </section>
                 </section>
