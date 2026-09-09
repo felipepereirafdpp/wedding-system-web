@@ -1,0 +1,83 @@
+
+.footer {
+    background-color: rgb(22, 36, 26);
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudoFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.siglaFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.footerIMG {
+    max-width: 100%;
+    height: auto;
+}
+
+.containerFooter {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.footer h1 {
+    color: rgb(169, 201, 172);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer h2 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+
+.navegacao a,
+.presentes {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.contato{
+    cursor: default;
+}
+
+
+.baseFooter {
+    width: 100%;
+}
+
+.linhaFooter {
+    border: none;
+    border-top: 1px solid white;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.direitos {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.6rem;
+    text-align: right;
+    margin: 0;
+}
