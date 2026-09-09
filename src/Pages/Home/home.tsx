@@ -232,7 +232,7 @@ export default function HomePage() {
                 <section className="containerGalery">
                     <ImageList
                         variant="masonry"
-                        cols={4}
+                        cols={5}
                         gap={12}
                         sx={{
                             width: '100%',
