@@ -4,55 +4,63 @@ import Footer from "../../Components/Footer/footer"
 import { useNavigate } from "react-router-dom";
 import { urlAPI } from "../../Services/api";
 import { useEffect, useState } from "react";
+import type { IPresents } from "../../interface/IPresents";
+import FuncoesTela from "../../Hooks/Presents/usePresents";
 
 
 export default function PresenteScreen() {
     const navigate = useNavigate();
-    const [presentes, setPresentes] = useState([]);
+    const [presentes, setPresentes] = useState<IPresents[]>([]);
 
-    useEffect(() => {
+    async function BuscarDados() {
+        const dados = await FuncoesTela().ListPresent();
+        setPresentes(dados);
+        console.log(dados);
+    }
 
-        async function buscarPresentes() {
-            try {
-                const response = await fetch(`${urlAPI}/api/Presentes`);
-
-                if (!response.ok) {
-                    throw new Error("Erro ao buscar presentes");
-                }
-
-                const dados = await response.json();
-
-                setPresentes(dados);
-
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        buscarPresentes();
-
-    }, []);
-
-    
+    useEffect(() => { BuscarDados() }, [])
 
     return (
         <section>
+            <header>
+                <Header
+                    onNavigate={() => navigate("/")}
+                    cursor="pointer"
+                />
+            </header>
 
-            <Header
-                onNavigate={() => navigate("/")}
-                cursor="pointer"
-            />
-
-            <main>
+            <main style={{ paddingTop: 100 }}>
                 <section className="containerPrincipal">
-                    {presentes.map((presente) => (
-                        <div key={presente.id}>
-                            {presente.NamePresent}
-                        </div>
-                    ))}
+                    <section className="cards">
+
+                        {presentes.map((presente) => (
+                            <div className="cardPresente" key={presente.id}>
+
+                                <div className="cardImagem">
+                                    <img
+                                        src={`http://casamento.runasp.net${presente.urlFoto}`}
+                                        alt={presente.namePresent}
+                                    />
+                                </div>
+
+                                <div className="cardInfo">
+                                    <h3>{presente.namePresent}</h3>
+                                    <p className="preco">
+                                        R$ {presente.pricePresent}
+                                    </p>
+                                    <button className="btnPresentear">
+                                        Presentear
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </section>
                 </section>
             </main>
-            <Footer />
+
+            <footer>
+                <Footer />
+            </footer>
         </section>
     );
 }
