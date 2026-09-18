@@ -1,5 +1,140 @@
-main {
+.paginaPresentes {
+    min-height: 100vh;
     background-color: rgb(250, 248, 238);
+}
+
+.loadingScreen {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 248, 238);
+}
+
+.loadingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.loadingIcon {
+    width: 80px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.ring {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top-color: #4f6b4e;
+    border-right-color: #4f6b4e;
+}
+
+.ringA {
+    left: 8px;
+    animation: ringSpinA 1.8s ease-in-out infinite;
+}
+
+.ringB {
+    right: 8px;
+    border-top-color: #c9a86a;
+    border-right-color: #c9a86a;
+    animation: ringSpinB 1.8s ease-in-out infinite;
+}
+
+.ringGlow {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 107, 78, 0.12) 0%, transparent 70%);
+    animation: glowPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ringSpinA {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(200deg) scale(1.08);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes ringSpinB {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-200deg) scale(1.08);
+    }
+
+    100% {
+        transform: rotate(-360deg) scale(1);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.loadingContent h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #2f3e2d 0%, #4f6b4e 25%, #c9a86a 50%, #4f6b4e 75%, #2f3e2d 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: shimmerText 3s linear infinite;
+}
+
+@keyframes shimmerText {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
+
+
+/* ========================= */
+/*          CARDS            */
+/* ========================= */
+
+.presentesMain {
+    background-color: rgb(250, 248, 238);
+    padding-top: 100px;
 }
 
 .containerPrincipal {
@@ -22,10 +157,12 @@ main {
     overflow: hidden;
     width: 250px;
     height: 50%;
+
     box-shadow:
         0px 10px 30px rgba(0, 0, 0, 0.08);
 
     transition: 0.3s;
+
     display: flex;
     flex-direction: column;
 }
@@ -48,6 +185,7 @@ main {
 
 .cardInfo {
     padding: 25px;
+
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -67,12 +205,16 @@ main {
 .btnPresentear {
     margin-top: auto;
     height: 50px;
+
     border: 1px solid #8fa88c;
     border-radius: 50px;
+
     background: transparent;
     color: #4f6b4e;
+
     font-weight: 600;
     cursor: pointer;
+
     transition: 0.3s;
 }
 

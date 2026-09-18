@@ -1,0 +1,111 @@
+.splashScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.splashLeaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* ===== MOLDURA ===== */
+
+.frameWrapper {
+    position: relative;
+    width: 260px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frameSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.frameEllipse {
+    fill: none;
+    stroke: #2E5A24;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-dasharray: 520;
+    stroke-dashoffset: 520;
+    animation: drawFrame 2.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes drawFrame {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+/* ===== CONTEÚDO CENTRAL ===== */
+
+.frameContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: revealContent 1.2s ease forwards;
+    animation-delay: 2.3s;
+}
+
+@keyframes revealContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.frameMonogram {
+    font-family: 'Island Moments', cursive;
+    font-size: 56px;
+    font-weight: 400;
+    color: #525252;
+    line-height: 1;
+}
+
+.frameLine {
+    width: 0;
+    height: 1px;
+    background-color: #c9a86a;
+    animation: growLine 1.1s ease forwards;
+    animation-delay: 2.8s;
+}
+
+@keyframes growLine {
+    to {
+        width: 60px;
+    }
+}
+
+.frameDate {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: rgba(46, 90, 36, 0.65);
+    opacity: 0;
+    animation: fadeInDate 1s ease forwards;
+    animation-delay: 3.6s;
+}
+
+@keyframes fadeInDate {
+    to {
+        opacity: 1;
+    }
+}
