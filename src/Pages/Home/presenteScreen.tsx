@@ -1,66 +1,124 @@
 import "./presenteScreen.css";
-import Header from "../../Components/Header/header"
-import Footer from "../../Components/Footer/footer"
+import Header from "../../Components/Header/header";
+import Footer from "../../Components/Footer/footer";
 import { useNavigate } from "react-router-dom";
-import { urlAPI } from "../../Services/api";
 import { useEffect, useState } from "react";
 import type { IPresents } from "../../interface/IPresents";
 import FuncoesTela from "../../Hooks/Presents/usePresents";
 
-
 export default function PresenteScreen() {
     const navigate = useNavigate();
+
     const [presentes, setPresentes] = useState<IPresents[]>([]);
+    const [loading, setLoading] = useState(true);
+
 
     async function BuscarDados() {
-        const dados = await FuncoesTela().ListPresent();
-        setPresentes(dados);
-        console.log(dados);
+        try {
+            const dados = await FuncoesTela().ListPresent();
+
+            setPresentes(dados);
+            setLoading(false);
+
+            console.log(dados);
+        } catch (error) {
+            console.error("Erro ao buscar presentes:", error);
+        }
     }
 
-    useEffect(() => { BuscarDados() }, [])
+
+    useEffect(() => {
+        BuscarDados();
+    }, []);
 
     return (
-        <section>
+        <section className="paginaPresentes">
+
             <header>
                 <Header
                     onNavigate={() => navigate("/")}
                     cursor="pointer"
+                    
                 />
             </header>
 
-            <main style={{ paddingTop: 100 }}>
-                <section className="containerPrincipal">
-                    <section className="cards">
+            {loading ? (
+                <main className="loadingScreen">
 
-                        {presentes.map((presente) => (
-                            <div className="cardPresente" key={presente.id}>
+                    <div className="loadingContent">
 
-                                <div className="cardImagem">
-                                    <img
-                                        src={`http://casamento.runasp.net${presente.urlFoto}`}
-                                        alt={presente.namePresent}
-                                    />
-                                </div>
+                        <div className="loadingContent">
 
-                                <div className="cardInfo">
-                                    <h3>{presente.namePresent}</h3>
-                                    <p className="preco">
-                                        R$ {presente.pricePresent}
-                                    </p>
-                                    <button className="btnPresentear">
-                                        Presentear
-                                    </button>
-                                </div>
+                            <div className="loadingIcon">
+                                <div className="ring ringA"></div>
+                                <div className="ring ringB"></div>
+                                <div className="ringGlow"></div>
                             </div>
-                        ))}
+
+                            <h2>Carregando presentes</h2>
+
+                            <div className="loadingDots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </main>
+            ) : (
+                <main className="presentesMain">
+
+                    <section className="containerPrincipal">
+
+                        <section className="cards">
+
+                            {presentes.map((presente) => (
+                                <div
+                                    className="cardPresente"
+                                    key={presente.id}
+                                >
+
+                                    <div className="cardImagem">
+                                        <img
+                                            src={`http://casamento.runasp.net${presente.urlFoto}`}
+                                            alt={presente.namePresent}
+                                        />
+                                    </div>
+
+                                    <div className="cardInfo">
+
+                                        <h3>
+                                            {presente.namePresent}
+                                        </h3>
+
+                                        <p className="preco">
+                                            R$ {presente.pricePresent}
+                                        </p>
+
+                                        <button className="btnPresentear">
+                                            Presentear
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            ))}
+
+                        </section>
+
                     </section>
-                </section>
-            </main>
+
+                </main>
+            )}
 
             <footer>
                 <Footer />
             </footer>
+
         </section>
     );
 }
+
