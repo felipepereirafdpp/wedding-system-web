@@ -1,83 +1,178 @@
-
 .footer {
     background-color: rgb(22, 36, 26);
-    padding: 40px 20px 20px 20px;
+    padding: clamp(40px, 5vw, 64px) var(--section-pad-x, 20px) 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .conteudoFooter {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    max-width: var(--content-max, 72rem);
+    display: grid;
+    grid-template-columns: minmax(160px, 260px) 1fr;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
+    gap: clamp(24px, 5vw, 72px);
+    margin-bottom: clamp(28px, 4vw, 44px);
 }
 
 .siglaFooter {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
 }
 
 .footerIMG {
+    display: block;
     max-width: 100%;
     height: auto;
 }
 
 .containerFooter {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(24px, 4vw, 56px);
 }
 
-.footer h1 {
+.tituloFooter {
     color: rgb(169, 201, 172);
     font-family: 'Manrope', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    margin: 0 0 1.1rem;
 }
 
-.footer h2 {
-    color: white;
+.listaFooter {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.footer a {
+    color: #ffffff;
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 0.95rem;
-    margin-bottom: 0.6rem;
-}
-
-
-.navegacao a,
-.presentes {
-    display: flex;
-    flex-direction: column;
+    line-height: 1.5;
     text-decoration: none;
-    color: white;
     cursor: pointer;
+    overflow-wrap: anywhere;
+    transition: color 0.25s ease, opacity 0.25s ease;
 }
 
-.contato{
-    cursor: default;
+.footer a:hover {
+    color: rgb(169, 201, 172);
 }
 
+.footer a:focus-visible {
+    outline: 2px solid rgb(169, 201, 172);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.linkPresentes {
+    display: inline-block;
+}
 
 .baseFooter {
     width: 100%;
+    max-width: var(--content-max, 72rem);
 }
 
 .linhaFooter {
     border: none;
-    border-top: 1px solid white;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
-    margin-bottom: 15px;
+    margin: 0 0 16px;
 }
 
 .direitos {
     color: rgba(255, 255, 255, 0.6);
     font-family: 'Manrope', sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
     text-align: right;
     margin: 0;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .conteudoFooter {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .siglaFooter {
+        width: min(220px, 60%);
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .footer {
+        padding: 36px 24px 20px;
+    }
+
+    /* remove a logo no mobile */
+    .siglaFooter {
+        display: none;
+    }
+
+    .conteudoFooter {
+        margin-bottom: 24px;
+    }
+
+    .containerFooter {
+        grid-template-columns: 1fr;
+        gap: 0;
+        text-align: center;
+    }
+
+    /* cada bloco ganha respiro e uma linha separando do próximo */
+    .containerFooter > * {
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .containerFooter > *:first-child {
+        padding-top: 0;
+    }
+
+    .containerFooter > *:last-child {
+        border-bottom: none;
+        padding-bottom: 8px;
+    }
+
+    .tituloFooter {
+        margin-bottom: 14px;
+    }
+
+    .listaFooter {
+        align-items: center;
+        gap: 4px;
+    }
+
+    /* área de toque maior nos links */
+    .footer a {
+        display: inline-block;
+        padding: 8px 4px;
+        font-size: 1rem;
+    }
+
+    .linkPresentes {
+        padding: 10px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 2px;
+        font-size: 0.9rem;
+    }
+
+    .direitos {
+        text-align: center;
+        font-size: 0.7rem;
+    }
 }

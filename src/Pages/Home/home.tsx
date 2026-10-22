@@ -1,10 +1,8 @@
 'use client';
 
 import "./home.css";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import CountdownNumber from "./CountdownNumber";
-import iconImg from '../../Assets/images/icon.png';
-import iconCasal from '../../Assets/images/IMG_4496.png'
 import imgCasal1 from '../../Assets/images/img1.webp';
 import imgCasal2 from '../../Assets/images/img2.webp';
 import imgCasal3 from '../../Assets/images/img3.webp';
@@ -18,7 +16,66 @@ import Footer from "../../Components/Footer/footer";
 import SplashScreen from "../../Components/SplashScreen/SplashScreen";
 
 export default function HomePage() {
-    const dataCasamento = new Date("2027-04-16T00:00:00");
+    const tlRef = useRef<HTMLElement | null>(null);
+
+    useEffect(() => {
+        const root = tlRef.current;
+        if (!root) return;
+
+        const items = root.querySelectorAll<HTMLElement>("[data-reveal]");
+        let io: IntersectionObserver | undefined;
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add("is-visible");
+                            observer.unobserve(e.target);
+                        }
+                    });
+                },
+                { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+            );
+            items.forEach((el) => observer.observe(el));
+            io = observer;
+        } else {
+            items.forEach((el) => el.classList.add("is-visible"));
+        }
+
+        const track = root.querySelector<HTMLElement>(".tl-track");
+        let raf = 0;
+
+        const update = () => {
+            if (!track) return;
+            const r = track.getBoundingClientRect();
+            const p = Math.min(1, Math.max(0, (window.innerHeight * 0.6 - r.top) / r.height));
+            root.style.setProperty("--prog", p.toFixed(4));
+        };
+
+        const onScroll = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+
+        return () => {
+            if (io) io.disconnect();
+            cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+    }, []);
+    const marcos = [
+        { ano: "2019", titulo: "Nos conhecemos", texto: "Onde tudo começou.", img: imgCasal1 },
+        { ano: "2021", titulo: "Primeira viagem", texto: "Nosso primeiro destino juntos.", img: imgCasal2 },
+        { ano: "2024", titulo: "Moramos juntos", texto: "Um lar para dividir.", img: imgCasal3 },
+        { ano: "2026", titulo: "O pedido", texto: "E a resposta foi sim.", img: imgCasal4 },
+    ];
+    const dataCasamento = new Date("2027-04-17T00:00:00");
 
     const [tempo, setTempo] = useState(
         dataCasamento.getTime() - Date.now()
@@ -43,7 +100,7 @@ export default function HomePage() {
     const [showSplash, setShowSplash] = useState(() => {
         return sessionStorage.getItem("splashShown") !== "true";
     });
-    
+
     const handleSplashFinish = useCallback(() => {
         sessionStorage.setItem("splashShown", "true");
         setShowSplash(false);
@@ -82,63 +139,8 @@ export default function HomePage() {
         {
             img: imgCasal1,
             title: 'Breakfast',
-        },
-        {
-            img: imgCasal2,
-            title: 'Burger',
-        },
-        {
-            img: imgCasal3,
-            title: 'Camera',
-        },
-        {
-            img: imgCasal4,
-            title: 'Coffee',
-        },
-        {
-            img: imgCasal5,
-            title: 'Hats',
-        },
-        {
-            img: imgCasal1,
-            title: 'Breakfast',
-        },
-        {
-            img: imgCasal2,
-            title: 'Burger',
-        },
-        {
-            img: imgCasal3,
-            title: 'Camera',
-        },
-        {
-            img: imgCasal4,
-            title: 'Coffee',
-        },
-        {
-            img: imgCasal5,
-            title: 'Hats',
-        },
-        {
-            img: imgCasal1,
-            title: 'Breakfast',
-        },
-        {
-            img: imgCasal2,
-            title: 'Burger',
-        },
-        {
-            img: imgCasal3,
-            title: 'Camera',
-        },
-        {
-            img: imgCasal4,
-            title: 'Coffee',
-        },
-        {
-            img: imgCasal5,
-            title: 'Hats',
-        },
+        }
+
 
     ];
 
@@ -154,18 +156,19 @@ export default function HomePage() {
 
 
                     <section className="central">
+                        <h2 className="messageHome">
+                            VAMOS CELEBRAR O NOSSO AMOR
+                        </h2>
 
                         <h1 className="name">
                             Thais & José
                         </h1>
 
                         <h2 className="day">
-                            SÁBADO, 16 DE ABRIL DE 2027 - MATÃO, SP
+                            SÁBADO, 17 DE ABRIL DE 2027 - MATÃO, SP
                         </h2>
 
-                        <h2 className="messageHome">
-                            “O amor não se vê com os olhos, mas com o coração”
-                        </h2>
+
 
                         <section className="countdown">
                             <CountdownNumber value={dias.toString()} label="DIAS" />
@@ -179,27 +182,50 @@ export default function HomePage() {
                     </section>
                 </section>
 
-                <section id="nossa-historia">
-                    <div className="icon-details">
-                        <img className="icon" src={iconImg} alt="Ícone de detalhes" />
+                <section id="nossa-historia" ref={tlRef} className="tl-section">
+                    <header className="tl-head" data-reveal>
+                        <span className="tl-eyebrow">NOSSA HISTÓRIA</span>
+                        <h2 className="tl-title">
+                            8 anos, <span>um mesmo caminho</span>
+                        </h2>
+                    </header>
+
+                    <div className="tl-track">
+                        <span className="tl-line" aria-hidden="true" />
+                        <span className="tl-line-fill" aria-hidden="true" />
+
+                        <ol className="tl-list">
+                            {marcos.map((m, i) => (
+                                <li
+                                    key={m.ano}
+                                    className={`tl-item ${i % 2 ? "tl-item--right" : ""}`}
+                                    data-reveal
+                                >
+                                    <span className="tl-dot" aria-hidden="true" />
+                                    <figure className="tl-photo">
+                                        <img src={m.img} alt={m.titulo} loading="lazy" />
+                                    </figure>
+                                    <div className="tl-info">
+                                        <span className="tl-year">{m.ano}</span>
+                                        <span className="tl-name">{m.titulo}</span>
+                                        {m.texto && <span className="tl-text">{m.texto}</span>}
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
                     </div>
-                    <section className="story">
 
+                    <div className="tl-finale" data-reveal>
+                        <div className="tl-rings" aria-hidden="true">
+                            <span className="tl-ring tl-ring--left" />
+                            <span className="tl-ring tl-ring--right" />
+                        </div>
 
-                        <img className="casal" src={iconCasal} alt="" />
-
-                        <section className="text">
-                            <h2 className="textTitle">NOSSA HISTÓRIA</h2>
-                            <h1 className="titleStory">8 anos, um  mesmo <br /> caminho</h1>
-                            <div className="textHistory">
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, earum eligendi? Nemo, officiis. Unde ratione aspernatur vel qui quasi adipisci maxime fugit corporis enim porro, laborum aliquam ex nostrum deserunt fugiat. </span>
-                                <img className="imgText" src={iconImg} alt="ícone de detalhes" />
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. A autem eius dolorum vitae repellendus ab option,.</span>
-                            </div>
-                            <h2 className="nameCasal">Thais & José</h2>
-                        </section>
-
-                    </section>
+                        <span className="tl-finale-label">O GRANDE DIA</span>
+                        <time className="tl-finale-date" dateTime="2027-04-16">
+                            17 · 04 · 2027
+                        </time>
+                    </div>
                 </section>
 
 
@@ -211,11 +237,14 @@ export default function HomePage() {
                         </h3>
 
                         <div className="second-block-Text">
-                            <h1 className="titleEvents">
-                                ESPERAMOS CELEBRAR COM VOCÊ
-                                <br />
-                                CONFIRME SUA PRESENÇA ATÉ 20 DE NOVEMBRO
-                            </h1>
+                            <h2 className="titleEvents">
+                                <span className="titleEventsMain">
+                                    ESPERAMOS CELEBRAR COM VOCÊ
+                                </span>
+                                <span className="titleEventsDeadline">
+                                    CONFIRME SUA PRESENÇA ATÉ 20 DE NOVEMBRO
+                                </span>
+                            </h2>
                             <p className="description">
                                 Sua presença é muito importante para nós! <br />
                                 Clique abaixo e confirme sua presença diretamente pelo WhatsApp. <br />
@@ -227,18 +256,16 @@ export default function HomePage() {
                             CONFIRMAR PRESENÇA
                         </button>
                     </div>
-                    <div className="mapEvent">
 
+                    <div className="mapEvent">
                         <Location />
                     </div>
 
-
                 </section>
-
 
                 <section id="galeria" className="gallery">
                     <section className="headerGalery">
-                        <h2 className="textGalery">REGISTROS</h2>
+                        <h2 className="textGalery">GALERIA</h2>
                         <h1 className="titleGalery">ALGUNS MOMENTOS NOSSOS</h1>
                     </section>
                     <section className="containerGalery">

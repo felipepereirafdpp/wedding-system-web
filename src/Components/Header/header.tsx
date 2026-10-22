@@ -1,37 +1,82 @@
 'use client';
-import "./header.css";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./header.css";
 
 interface headerProp {
     onNavigate?: () => void;
-    cursor?: string; 
+    cursor?: string;
 }
 
-export default function header({ onNavigate, cursor }: headerProp) {
-
+export default function Header({ onNavigate, cursor }: headerProp) {
     const navigate = useNavigate();
-    return (
-        <section className="header">
+    const [aberto, setAberto] = useState(false);
 
-            <img 
+    const fechar = () => setAberto(false);
+
+    const irParaPresentes = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        fechar();
+        navigate("/presenteScreen");
+    };
+
+    const irParaEvento = () => {
+        fechar();
+        document.getElementById("evento")?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // fecha com Esc e quando a tela volta para o tamanho de desktop
+    useEffect(() => {
+        const aoTeclar = (e: KeyboardEvent) => {
+            if (e.key === "Escape") fechar();
+        };
+        const aoRedimensionar = () => {
+            if (window.innerWidth > 860) fechar();
+        };
+        window.addEventListener("keydown", aoTeclar);
+        window.addEventListener("resize", aoRedimensionar);
+        return () => {
+            window.removeEventListener("keydown", aoTeclar);
+            window.removeEventListener("resize", aoRedimensionar);
+        };
+    }, []);
+
+    return (
+        <header className="header">
+            <img
                 className="logo"
                 src="https://cdn.awsli.com.br/598/598767/produto/348894699/sua-logo-aqui-2-i3b0147lmi.png"
-                alt=""
+                alt="Logo"
                 onClick={onNavigate}
-                style={{
-                    cursor: cursor
-                }}
+                style={{ cursor: cursor }}
             />
 
+            <button
+                type="button"
+                className={`hamburger ${aberto ? "open" : ""}`}
+                onClick={() => setAberto((v) => !v)}
+                aria-label={aberto ? "Fechar menu" : "Abrir menu"}
+                aria-expanded={aberto}
+                aria-controls="menu-principal"
+            >
+                <span />
+                <span />
+                <span />
+            </button>
 
-            <section className="menu">
-                
-                <a href="#nossa-historia">NOSSA HISTÓRIA</a>
-                <a href="#galeria">GALERIA</a>
-                <a onClick={() => navigate("/presenteScreen")}>PRESENTES</a>
+            <nav
+                id="menu-principal"
+                className={`menu ${aberto ? "open" : ""}`}
+                aria-label="Menu principal"
+            >
+                <a href="#nossa-historia" onClick={fechar}>NOSSA HISTÓRIA</a>
+                <a href="#galeria" onClick={fechar}>GALERIA</a>
+                <a href="/presenteScreen" onClick={irParaPresentes}>PRESENTES</a>
 
-                <button onClick={() => document.getElementById("evento")?.scrollIntoView()} className="button"> CONFIRMAR PRESENÇA</button>
-            </section>
-        </section>
-    )
+                <button type="button" onClick={irParaEvento} className="button">
+                    CONFIRMAR PRESENÇA
+                </button>
+            </nav>
+        </header>
+    );
 }

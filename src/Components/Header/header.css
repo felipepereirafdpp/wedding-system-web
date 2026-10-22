@@ -1,7 +1,8 @@
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .header {
@@ -15,9 +16,8 @@
     top: 24px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(92%, 1280px);
-    height: 7.5vh;
-    min-height: 64px;
+    width: min(92%, 72rem);
+    height: 72px;
     border-radius: 100px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow:
@@ -27,12 +27,11 @@
         inset 0 -1px 0 rgba(0, 0, 0, 0.02);
 
     font-family: 'Manrope', sans-serif;
-    font-size: 1.2vh;
     color: #2E2E2E;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 clamp(24px, 3vw, 48px);
+    padding: 0 clamp(20px, 3vw, 40px);
     z-index: 1000;
     transition:
         box-shadow 0.4s ease,
@@ -54,34 +53,26 @@
     pointer-events: none;
 }
 
-
+/* ===================== MENU (desktop) ===================== */
 .menu {
     display: flex;
-    gap: clamp(20px, 3.5vw, 64px);
-    cursor: pointer;
-    font-size: 115%;
-    z-index: 999;
     align-items: center;
+    gap: clamp(20px, 3vw, 44px);
 }
 
-
-
-.menu a,
-.menu span {
+.menu a {
     position: relative;
     color: #3B3B3B;
-    font-weight: 800;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
     text-decoration: none;
     padding: 8px 0;
+    cursor: pointer;
     transition: color 0.3s ease;
-    font-size: 125%;
-
-
 }
 
-.menu a::after,
-.menu span::after {
+.menu a::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -91,38 +82,37 @@
     background: linear-gradient(90deg, transparent, #3B6B2E, transparent);
     transform: translateX(-50%);
     transition: width 0.35s ease;
-
 }
 
-.menu a:hover,
-.menu span:hover {
+.menu a:hover {
     color: #3B6B2E;
 }
 
-.menu a:hover::after,
-.menu span:hover::after {
+.menu a:hover::after {
     width: 100%;
 }
 
+.menu a:focus-visible,
+.button:focus-visible,
+.hamburger:focus-visible {
+    outline: 2px solid #3B6B2E;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
 
 .button {
-    border: 1px solid rgba(var(--color-green-soft), 0.45);
-    background-color: rgba(var(--color-green-soft), 0.08);
-
+    border: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.45);
+    background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.08);
     cursor: pointer;
-    color: var(--color-green-dark);
-    font-family: var(--font-family);
-    font-weight: 600;
-    font-size: var(--font-size-button);
-
-    height: 38px;
+    color: var(--color-green-dark, #2E5A24);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    height: 40px;
     padding: 0 clamp(18px, 2vw, 26px);
     white-space: nowrap;
-
-    border-radius: var(--radius-pill);
-    letter-spacing: 0.4px;
-    z-index: 999;
-
+    border-radius: var(--radius-pill, 100px);
     transition:
         background-color 0.4s ease,
         border-color 0.4s ease,
@@ -130,12 +120,133 @@
 }
 
 .button:hover {
-    background-color: rgba(var(--color-green-soft), 0.8);
-    border-color: rgba(var(--color-green-soft), 0.8);
-    color: var(--color-white);
+    background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.85);
+    border-color: rgba(var(--color-green-soft, 59, 107, 46), 0.85);
+    color: var(--color-white, #ffffff);
 }
 
 .button:active {
-    background-color: var(--color-green-dark);
-    border-color: var(--color-green-dark);
+    background-color: var(--color-green-dark, #2E5A24);
+    border-color: var(--color-green-dark, #2E5A24);
+}
+
+/* botão hambúrguer: escondido no desktop */
+.hamburger {
+    display: none;
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 860px) {
+
+    .header {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.12);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        height: 56px;  
+      
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* botão hambúrguer */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .hamburger:hover {
+        background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.1);
+    }
+
+    .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #3B3B3B;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* menu vira um painel que abre embaixo do header */
+    .menu {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 20px 20px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 28px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu a {
+        padding: 16px 4px;
+        font-size: 0.9rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.12);
+    }
+
+    .menu a::after {
+        display: none;
+    }
+
+    .menu .button {
+        width: 100%;
+        height: 48px;
+        margin-top: 16px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu,
+    .hamburger span {
+        transition-duration: 0.01s;
+    }
 }

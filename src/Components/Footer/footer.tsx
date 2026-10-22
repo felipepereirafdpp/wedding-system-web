@@ -4,42 +4,52 @@ import { useNavigate } from 'react-router-dom';
 import logoFooter from '../../Assets/images/logoFooter.png';
 import "./footer.css";
 
-export default function Footer(){
+export default function Footer() {
     const navigate = useNavigate();
-    return(
-        <section className="footer">
-                <section className="conteudoFooter">
-                    <section className="siglaFooter">
-                        <img className="footerIMG" src={logoFooter} alt="Logo" />
-                    </section>
 
-                    <section className="containerFooter">
-                        <section className="navegacao">
-                            <h1>NAVEGAÇÃO</h1>
-                            <h2><a href="#nossa-historia">Nossa História</a> </h2>
-                            <h2><a href="#galeria">Galeria</a></h2>
-                            <h2><a onClick={() => navigate("/presenteScreen")}>Presente</a></h2>
-                        </section>
+    const irParaPresentes = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        navigate("/presenteScreen");
+    };
 
-                        <section className="contato">
-                            <h1>CONTATO</h1>
-                            <h2>thaispastori@gmail.com</h2>
-                            <h2>1699990000</h2>
-                        </section>
+    return (
+        <footer className="footer">
+            <div className="conteudoFooter">
+                <div className="siglaFooter">
+                    <img className="footerIMG" src={logoFooter} alt="Logo" />
+                </div>
 
-                        <section className="presentes">
-                            <h1>LISTA DE PRESENTES</h1>
-                            <a onClick={() => navigate("/presenteScreen")}>Ver lista de presentes ➝</a>
-                        </section>
-                    </section>
-                </section>
+                <div className="containerFooter">
+                    <nav className="navegacao" aria-label="Navegação do rodapé">
+                        <h2 className="tituloFooter">NAVEGAÇÃO</h2>
+                        <ul className="listaFooter">
+                            <li><a href="#nossa-historia">Nossa História</a></li>
+                            <li><a href="#galeria">Galeria</a></li>
+                            <li><a href="/presenteScreen" onClick={irParaPresentes}>Presente</a></li>
+                        </ul>
+                    </nav>
 
+                    <div className="contato">
+                        <h2 className="tituloFooter">CONTATO</h2>
+                        <ul className="listaFooter">
+                            <li><a href="mailto:thaispastori@gmail.com">thaispastori@gmail.com</a></li>
+                            <li><a href="tel:1699990000">1699990000</a></li>
+                        </ul>
+                    </div>
 
-                <section className="baseFooter">
-                    <hr className="linhaFooter" />
-                    <p className="direitos">© 2026  Desenvolvido por EvoCode </p>
-                </section>
-            </section>
-    )
+                    <div className="presentes">
+                        <h2 className="tituloFooter">LISTA DE PRESENTES</h2>
+                        <a className="linkPresentes" href="/presenteScreen" onClick={irParaPresentes}>
+                            Ver lista de presentes ➝
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="baseFooter">
+                <hr className="linhaFooter" />
+                <p className="direitos">© 2026 Desenvolvido por EvoCode</p>
+            </div>
+        </footer>
+    );
 }
-
