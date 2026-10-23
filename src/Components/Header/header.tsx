@@ -45,10 +45,10 @@ export default function Header({ onNavigate, cursor }: headerProp) {
         <header className="header">
             <img
                 className="logo"
-                src="https://cdn.awsli.com.br/598/598767/produto/348894699/sua-logo-aqui-2-i3b0147lmi.png"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9oRKSF-DOsDkBojDIu-1w5gKBywU0hR-4RMsDpMokqw&s=10"
                 alt="Logo"
                 onClick={onNavigate}
-                style={{ cursor: cursor }}
+                style={{ cursor: cursor}}
             />
 
             <button
@@ -69,7 +69,6 @@ export default function Header({ onNavigate, cursor }: headerProp) {
                 className={`menu ${aberto ? "open" : ""}`}
                 aria-label="Menu principal"
             >
-                <a href="#nossa-historia" onClick={fechar}>NOSSA HISTÓRIA</a>
                 <a href="#galeria" onClick={fechar}>GALERIA</a>
                 <a href="/presenteScreen" onClick={irParaPresentes}>PRESENTES</a>
 

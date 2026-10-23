@@ -1,3 +1,7 @@
+/* Usa as variáveis de cor definidas no :root do Home.css
+   (--c-forest, --c-sage, --c-cream, --c-cream-soft). Os fallbacks garantem
+   que funcione mesmo se este arquivo carregar antes. */
+
 .logo {
     width: 48px;
     height: 48px;
@@ -7,27 +11,25 @@
 
 .header {
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.65) 0%,
-            rgba(255, 255, 255, 0.3) 50%,
-            rgba(255, 255, 255, 0.5) 100%);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+            rgba(22, 36, 26, 0.78) 0%,
+            rgba(22, 36, 26, 0.6) 50%,
+            rgba(22, 36, 26, 0.74) 100%);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
     position: absolute;
     top: 24px;
     left: 50%;
     transform: translateX(-50%);
     width: min(92%, 72rem);
-    height: 72px;
+    height: 62px;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: none;
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+        0 10px 36px rgba(0, 0, 0, 0.38),
+        0 3px 10px rgba(0, 0, 0, 0.2);
 
     font-family: 'Manrope', sans-serif;
-    color: #2E2E2E;
+    color: var(--c-cream, #F4EFE6);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,10 +43,8 @@
 
 .header:hover {
     box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.1),
-        0 4px 12px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+        0 14px 44px rgba(0, 0, 0, 0.45),
+        0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .header.hide {
@@ -62,7 +62,7 @@
 
 .menu a {
     position: relative;
-    color: #3B3B3B;
+    color: var(--c-cream, #F4EFE6);
     font-weight: 700;
     font-size: 0.82rem;
     letter-spacing: 0.08em;
@@ -79,13 +79,13 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #3B6B2E, transparent);
+    background: linear-gradient(90deg, transparent, var(--c-sage, #9CC3A8), transparent);
     transform: translateX(-50%);
     transition: width 0.35s ease;
 }
 
 .menu a:hover {
-    color: #3B6B2E;
+    color: var(--c-sage, #9CC3A8);
 }
 
 .menu a:hover::after {
@@ -95,16 +95,16 @@
 .menu a:focus-visible,
 .button:focus-visible,
 .hamburger:focus-visible {
-    outline: 2px solid #3B6B2E;
+    outline: 2px solid var(--c-sage, #9CC3A8);
     outline-offset: 3px;
     border-radius: 4px;
 }
 
 .button {
-    border: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.45);
-    background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.08);
+    border: 1px solid var(--c-sage, #9CC3A8);
+    background-color: rgba(156, 195, 168, 0.15);
     cursor: pointer;
-    color: var(--color-green-dark, #2E5A24);
+    color: var(--c-cream, #F4EFE6);
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
@@ -120,14 +120,15 @@
 }
 
 .button:hover {
-    background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.85);
-    border-color: rgba(var(--color-green-soft, 59, 107, 46), 0.85);
-    color: var(--color-white, #ffffff);
+    background-color: var(--c-cream, #F4EFE6);
+    border-color: var(--c-cream, #F4EFE6);
+    color: var(--c-forest, #16241A);
 }
 
 .button:active {
-    background-color: var(--color-green-dark, #2E5A24);
-    border-color: var(--color-green-dark, #2E5A24);
+    background-color: var(--c-sage, #9CC3A8);
+    border-color: var(--c-sage, #9CC3A8);
+    color: var(--c-forest, #16241A);
 }
 
 /* botão hambúrguer: escondido no desktop */
@@ -139,13 +140,12 @@
 @media (max-width: 860px) {
 
     .header {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(22, 36, 26, 0.85);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.12);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        height: 56px;  
-      
+        border: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+        height: 56px;
     }
 
     .logo {
@@ -171,7 +171,7 @@
     }
 
     .hamburger:hover {
-        background-color: rgba(var(--color-green-soft, 59, 107, 46), 0.1);
+        background-color: rgba(244, 239, 230, 0.1);
     }
 
     .hamburger span {
@@ -179,7 +179,7 @@
         width: 22px;
         height: 2px;
         border-radius: 2px;
-        background-color: #3B3B3B;
+        background-color: var(--c-cream, #F4EFE6);
         transition: transform 0.35s ease, opacity 0.25s ease;
     }
 
@@ -205,10 +205,10 @@
         align-items: stretch;
         gap: 0;
         padding: 12px 20px 20px;
-        background: rgba(255, 255, 255, 0.96);
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: rgba(22, 36, 26, 0.96);
+        border: 1px solid rgba(244, 239, 230, 0.15);
         border-radius: 28px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 
         opacity: 0;
         visibility: hidden;
@@ -229,7 +229,7 @@
         padding: 16px 4px;
         font-size: 0.9rem;
         text-align: center;
-        border-bottom: 1px solid rgba(var(--color-green-soft, 59, 107, 46), 0.12);
+        border-bottom: 1px solid rgba(244, 239, 230, 0.12);
     }
 
     .menu a::after {

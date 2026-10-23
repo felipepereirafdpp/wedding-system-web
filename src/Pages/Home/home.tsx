@@ -3,11 +3,19 @@
 import "./home.css";
 import { useEffect, useState, useCallback, useRef } from "react";
 import CountdownNumber from "./CountdownNumber";
-import imgCasal1 from '../../Assets/images/img1.webp';
-import imgCasal2 from '../../Assets/images/img2.webp';
-import imgCasal3 from '../../Assets/images/img3.webp';
-import imgCasal4 from '../../Assets/images/img4.webp';
-import imgCasal5 from '../../Assets/images/img5.webp';
+
+import imgCasal1 from '../../Assets/images/Galeria1.jpg';
+import imgCasal2 from '../../Assets/images/Galeria2.jpg';
+import imgCasal3 from '../../Assets/images/Galeria3.jpg';
+import imgCasal4 from '../../Assets/images/Galeria4.jpg';
+import imgCasal5 from '../../Assets/images/Galeria5.jpg';
+import imgCasal6 from '../../Assets/images/Galeria6.jpg';
+import imgCasal7 from '../../Assets/images/Galeria7.jpg';
+import imgCasal8 from '../../Assets/images/Galeria8.jpg';
+import imgCasal9 from '../../Assets/images/Galeria9.jpg';
+import imgCasal10 from '../../Assets/images/Galeria10.jpg';
+import imgCasal11 from '../../Assets/images/Galeria11.jpg';
+import imgCasal12 from '../../Assets/images/Galeria12.jpg';
 import Location from "./location";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -16,6 +24,7 @@ import Footer from "../../Components/Footer/footer";
 import SplashScreen from "../../Components/SplashScreen/SplashScreen";
 
 export default function HomePage() {
+    
     const tlRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
@@ -137,12 +146,36 @@ export default function HomePage() {
             title: 'Hats',
         },
         {
-            img: imgCasal1,
+            img: imgCasal6,
+            title: 'Breakfast',
+        }, {
+            img: imgCasal7,
+            title: 'Breakfast',
+        },
+        {
+            img: imgCasal8,
+            title: 'Burger',
+        },
+        {
+            img: imgCasal9,
+            title: 'Camera',
+        },
+        {
+            img: imgCasal10,
+            title: 'Coffee',
+        },
+        {
+            img: imgCasal11,
+            title: 'Hats',
+        },
+        {
+            img: imgCasal12,
             title: 'Breakfast',
         }
 
 
     ];
+    
 
     return (
         <>
@@ -161,7 +194,7 @@ export default function HomePage() {
                         </h2>
 
                         <h1 className="name">
-                            Thais & José
+                            Thais & José Henrique
                         </h1>
 
                         <h2 className="day">
@@ -182,7 +215,7 @@ export default function HomePage() {
                     </section>
                 </section>
 
-                <section id="nossa-historia" ref={tlRef} className="tl-section">
+                {/* <section id="nossa-historia" ref={tlRef} className="tl-section">
                     <header className="tl-head" data-reveal>
                         <span className="tl-eyebrow">NOSSA HISTÓRIA</span>
                         <h2 className="tl-title">
@@ -226,7 +259,7 @@ export default function HomePage() {
                             17 · 04 · 2027
                         </time>
                     </div>
-                </section>
+                </section> */}
 
 
                 <section id="evento" className="events">
