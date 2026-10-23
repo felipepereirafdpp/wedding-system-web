@@ -114,10 +114,6 @@ export default function PresenteScreen() {
                 </main>
             )}
 
-            <footer>
-                <Footer />
-            </footer>
-
         </section>
     );
 }
