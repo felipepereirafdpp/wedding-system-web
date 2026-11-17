@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
+import logo from "../../Assets/images/Tipografia.png";
 
 interface headerProp {
     onNavigate?: () => void;
@@ -43,13 +44,49 @@ export default function Header({ onNavigate, cursor }: headerProp) {
 
     return (
         <header className="header">
-            <img
-                className="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9oRKSF-DOsDkBojDIu-1w5gKBywU0hR-4RMsDpMokqw&s=10"
-                alt="Logo"
+            <div
+                className="brand"
+                role="button"
+                tabIndex={0}
+                aria-label="Início"
                 onClick={onNavigate}
-                style={{ cursor: cursor}}
-            />
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') onNavigate?.();
+                }}
+                style={{ cursor: cursor }}
+            >
+    
+                <span className="brandText" aria-hidden="true">
+                    <span className="brandLetter">T</span>
+
+                    <svg className="brandSprig" viewBox="0 0 100 70">
+                        <defs>
+                            <path id="leaf" d="M0 0 C3 -4.5 9 -4.5 14 0 C9 4.5 3 4.5 0 0Z" />
+                        </defs>
+
+                        {/* haste */}
+                        <path className="sprigStem" d="M92 62 Q50 40 8 10" />
+
+                        {/* folhas viradas pra cima */}
+                        <use href="#leaf" transform="translate(75 53) rotate(-104)" />
+                        <use href="#leaf" transform="translate(58 43) rotate(-104)" />
+                        <use href="#leaf" transform="translate(42 33) rotate(-104)" />
+                        <use href="#leaf" transform="translate(25 22) rotate(-104)" />
+
+                        {/* folhas viradas pra esquerda */}
+                        <use href="#leaf" transform="translate(75 53) rotate(-194)" />
+                        <use href="#leaf" transform="translate(58 43) rotate(-194)" />
+                        <use href="#leaf" transform="translate(42 33) rotate(-194)" />
+                        <use href="#leaf" transform="translate(25 22) rotate(-194)" />
+
+                        {/* folha da ponta */}
+                        <use href="#leaf" transform="translate(8 10) rotate(-149)" />
+                    </svg>
+
+                    <span className="brandLetter">JH</span>
+                </span>
+            </div>
+
 
             <button
                 type="button"

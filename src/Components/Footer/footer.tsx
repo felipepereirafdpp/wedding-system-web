@@ -1,7 +1,6 @@
 'use client';
-
+import logo from "../../Assets/images/Tipografia.png";
 import { useNavigate } from 'react-router-dom';
-import logoFooter from '../../Assets/images/logoFooter.png';
 import "./footer.css";
 
 export default function Footer() {
@@ -16,7 +15,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="conteudoFooter">
                 <div className="siglaFooter">
-                    <img className="footerIMG" src={logoFooter} alt="Logo" />
+                    <img className="footerIMG" src={logo} alt="Logo" />
                 </div>
 
                 <div className="containerFooter">

@@ -1,21 +1,22 @@
 'use client';
 
 import "./home.css";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import CountdownNumber from "./CountdownNumber";
 
 import imgCasal1 from '../../Assets/images/Galeria1.jpg';
-import imgCasal2 from '../../Assets/images/Galeria2.jpg';
+import imgCasal9 from '../../Assets/images/Galeria2.jpg';
 import imgCasal3 from '../../Assets/images/Galeria3.jpg';
 import imgCasal4 from '../../Assets/images/Galeria4.jpg';
 import imgCasal5 from '../../Assets/images/Galeria5.jpg';
 import imgCasal6 from '../../Assets/images/Galeria6.jpg';
 import imgCasal7 from '../../Assets/images/Galeria7.jpg';
 import imgCasal8 from '../../Assets/images/Galeria8.jpg';
-import imgCasal9 from '../../Assets/images/Galeria9.jpg';
+import imgCasal2 from '../../Assets/images/Galeria9.jpg';
 import imgCasal10 from '../../Assets/images/Galeria10.jpg';
 import imgCasal11 from '../../Assets/images/Galeria11.jpg';
 import imgCasal12 from '../../Assets/images/Galeria12.jpg';
+import imgCasal13 from '../../Assets/images/Galeria12.jpg';
 import Location from "./location";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -24,66 +25,7 @@ import Footer from "../../Components/Footer/footer";
 import SplashScreen from "../../Components/SplashScreen/SplashScreen";
 
 export default function HomePage() {
-    
-    const tlRef = useRef<HTMLElement | null>(null);
 
-    useEffect(() => {
-        const root = tlRef.current;
-        if (!root) return;
-
-        const items = root.querySelectorAll<HTMLElement>("[data-reveal]");
-        let io: IntersectionObserver | undefined;
-
-        if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((e) => {
-                        if (e.isIntersecting) {
-                            e.target.classList.add("is-visible");
-                            observer.unobserve(e.target);
-                        }
-                    });
-                },
-                { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
-            );
-            items.forEach((el) => observer.observe(el));
-            io = observer;
-        } else {
-            items.forEach((el) => el.classList.add("is-visible"));
-        }
-
-        const track = root.querySelector<HTMLElement>(".tl-track");
-        let raf = 0;
-
-        const update = () => {
-            if (!track) return;
-            const r = track.getBoundingClientRect();
-            const p = Math.min(1, Math.max(0, (window.innerHeight * 0.6 - r.top) / r.height));
-            root.style.setProperty("--prog", p.toFixed(4));
-        };
-
-        const onScroll = () => {
-            cancelAnimationFrame(raf);
-            raf = requestAnimationFrame(update);
-        };
-
-        update();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
-
-        return () => {
-            if (io) io.disconnect();
-            cancelAnimationFrame(raf);
-            window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("resize", onScroll);
-        };
-    }, []);
-    const marcos = [
-        { ano: "2019", titulo: "Nos conhecemos", texto: "Onde tudo começou.", img: imgCasal1 },
-        { ano: "2021", titulo: "Primeira viagem", texto: "Nosso primeiro destino juntos.", img: imgCasal2 },
-        { ano: "2024", titulo: "Moramos juntos", texto: "Um lar para dividir.", img: imgCasal3 },
-        { ano: "2026", titulo: "O pedido", texto: "E a resposta foi sim.", img: imgCasal4 },
-    ];
     const dataCasamento = new Date("2027-04-17T00:00:00");
 
     const [tempo, setTempo] = useState(
@@ -125,57 +67,21 @@ export default function HomePage() {
     };
 
     const itemData = [
-        {
-            img: imgCasal1,
-            title: 'Breakfast',
-        },
-        {
-            img: imgCasal2,
-            title: 'Burger',
-        },
-        {
-            img: imgCasal3,
-            title: 'Camera',
-        },
-        {
-            img: imgCasal4,
-            title: 'Coffee',
-        },
-        {
-            img: imgCasal5,
-            title: 'Hats',
-        },
-        {
-            img: imgCasal6,
-            title: 'Breakfast',
-        }, {
-            img: imgCasal7,
-            title: 'Breakfast',
-        },
-        {
-            img: imgCasal8,
-            title: 'Burger',
-        },
-        {
-            img: imgCasal9,
-            title: 'Camera',
-        },
-        {
-            img: imgCasal10,
-            title: 'Coffee',
-        },
-        {
-            img: imgCasal11,
-            title: 'Hats',
-        },
-        {
-            img: imgCasal12,
-            title: 'Breakfast',
-        }
-
-
+        { img: imgCasal1, title: 'Breakfast', orientation: 'portrait' },
+        { img: imgCasal2, title: 'Burger', orientation: 'portrait' },
+        { img: imgCasal3, title: 'Camera', orientation: 'portrait' },
+        { img: imgCasal4, title: 'Coffee', orientation: 'landscape' },
+        { img: imgCasal5, title: 'Hats', orientation: 'landscape' },
+        { img: imgCasal6, title: 'Breakfast', orientation: 'landscape' },
+        { img: imgCasal8, title: 'Burger', orientation: 'portrait' },
+        { img: imgCasal9, title: 'Camera', orientation: 'portrait' },
+        { img: imgCasal11, title: 'Hats', orientation: 'portrait' },
+        { img: imgCasal12, title: 'Breakfast', orientation: 'portraitTall' },
+        { img: imgCasal7, title: 'Breakfast', orientation: 'landscape' },
+        { img: imgCasal10, title: 'Coffee', orientation: 'landscape' },
+        { img: imgCasal13, title: 'Novo', orientation: 'landscape' },
     ];
-    
+
 
     return (
         <>
@@ -215,51 +121,7 @@ export default function HomePage() {
                     </section>
                 </section>
 
-                {/* <section id="nossa-historia" ref={tlRef} className="tl-section">
-                    <header className="tl-head" data-reveal>
-                        <span className="tl-eyebrow">NOSSA HISTÓRIA</span>
-                        <h2 className="tl-title">
-                            8 anos, <span>um mesmo caminho</span>
-                        </h2>
-                    </header>
-
-                    <div className="tl-track">
-                        <span className="tl-line" aria-hidden="true" />
-                        <span className="tl-line-fill" aria-hidden="true" />
-
-                        <ol className="tl-list">
-                            {marcos.map((m, i) => (
-                                <li
-                                    key={m.ano}
-                                    className={`tl-item ${i % 2 ? "tl-item--right" : ""}`}
-                                    data-reveal
-                                >
-                                    <span className="tl-dot" aria-hidden="true" />
-                                    <figure className="tl-photo">
-                                        <img src={m.img} alt={m.titulo} loading="lazy" />
-                                    </figure>
-                                    <div className="tl-info">
-                                        <span className="tl-year">{m.ano}</span>
-                                        <span className="tl-name">{m.titulo}</span>
-                                        {m.texto && <span className="tl-text">{m.texto}</span>}
-                                    </div>
-                                </li>
-                            ))}
-                        </ol>
-                    </div>
-
-                    <div className="tl-finale" data-reveal>
-                        <div className="tl-rings" aria-hidden="true">
-                            <span className="tl-ring tl-ring--left" />
-                            <span className="tl-ring tl-ring--right" />
-                        </div>
-
-                        <span className="tl-finale-label">O GRANDE DIA</span>
-                        <time className="tl-finale-date" dateTime="2027-04-16">
-                            17 · 04 · 2027
-                        </time>
-                    </div>
-                </section> */}
+                
 
 
                 <section id="evento" className="events">
@@ -299,33 +161,13 @@ export default function HomePage() {
                 <section id="galeria" className="gallery">
                     <section className="headerGalery">
                         <h2 className="textGalery">GALERIA</h2>
-                        <h1 className="titleGalery">ALGUNS MOMENTOS NOSSOS</h1>
+                        <h1 className="titleGalery">UM POUCO DE NÓS</h1>
                     </section>
                     <section className="containerGalery">
-                        <ImageList
-                            variant="masonry"
-                            cols={5}
-                            gap={12}
-                            sx={{
-                                width: '100%',
-                                margin: 0,
-                            }}
-                        >
-                            {itemData.map((item, index) => (
-                                <ImageListItem
-                                    key={`${item.img}-${index}`}
-                                    sx={{ width: '100%' }}
-                                >
-                                    <img
-                                        src={item.img}
-                                        alt={item.title}
-                                        loading="lazy"
-                                        style={{
-                                            width: '100%',
-                                            display: 'block',
-                                            borderRadius: '4px',
-                                        }}
-                                    />
+                        <ImageList>
+                            {itemData.map((item) => (
+                                <ImageListItem key={item.img} className={`gItem ${item.orientation}`}>
+                                    <img src={item.img} alt={item.title} loading="lazy" />
                                 </ImageListItem>
                             ))}
                         </ImageList>
