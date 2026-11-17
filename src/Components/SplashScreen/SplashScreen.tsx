@@ -40,7 +40,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
                 <div className="frameContent">
                     <h1 className="frameMonogram">T & J</h1>
                     <span className="frameLine"></span>
-                    <p className="frameDate">16 . 04 . 2027</p>
+                    <p className="frameDate">17 . 04 . 2027</p>
                 </div>
 
             </div>
