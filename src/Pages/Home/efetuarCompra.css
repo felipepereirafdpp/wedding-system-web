@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap");
+
+/* ---------- TELA INTEIRA ---------- */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    overflow-y: auto; /* a rolagem acontece aqui dentro */
+
+    background: #ffffff;
+    animation: telaIn 0.3s ease;
+}
+.modalOverlay .loadingScreen {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.box-detalhe-produto {
+    position: relative;
+    width: 100%;
+    max-width: 1180px;
+    margin: auto; /* centraliza na vertical e na horizontal */
+    padding: 96px 24px 64px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+/* ---------- BOTÃO FECHAR ---------- */
+.btnFechar {
+    position: absolute;
+    top: 32px;
+    right: 24px;
+
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #cfd8cb;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #4a6b50;
+    cursor: pointer;
+
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btnFechar:hover {
+    background: #4a6b50;
+    border-color: #4a6b50;
+    color: #ffffff;
+}
+
+/* ---------- IMAGEM ---------- */
+.detalheImagem {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 72vh;
+    padding: 24px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ffffff;
+    border: 1px solid #e3e8df;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.detalheImagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mostra o presente inteiro */
+    display: block;
+}
+
+/* ---------- INFORMAÇÕES ---------- */
+.detalheInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.detalheEyebrow {
+    margin-bottom: 16px;
+
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #4a6b50;
+}
+
+.detalheInfo h1 {
+    margin: 0 0 24px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #1a251b;
+}
+
+.detalhePreco {
+    margin: 0 0 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e3e8df;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-variant-numeric: lining-nums;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #4a6b50;
+}
+
+.detalhePreco small {
+    margin-right: 6px;
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+.detalheDescricao {
+    margin: 0 0 40px;
+
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #6b7a6c;
+}
+
+/* ---------- BOTÃO PRESENTEAR ---------- */
+.btnConfirmarPresente {
+    width: 100%;
+    max-width: 420px;
+    height: 54px;
+
+    border: 1px solid #4a6b50;
+    border-radius: 4px;
+    background: #4a6b50;
+    color: #ffffff;
+    cursor: pointer;
+
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    transition: background 0.3s, color 0.3s;
+}
+
+.btnConfirmarPresente:hover {
+    background: transparent;
+    color: #4a6b50;
+}
+
+@keyframes telaIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CELULAR ---------- */
+@media (max-width: 800px) {
+    .box-detalhe-produto {
+        padding: 84px 16px 40px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: start;
+        margin: 0 auto;
+    }
+
+    .btnFechar {
+        top: 20px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .detalheImagem {
+        aspect-ratio: 4 / 3;
+        max-height: none;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .detalheInfo h1 {
+        margin-bottom: 18px;
+    }
+
+    .detalhePreco {
+        font-size: 34px;
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+    }
+
+    .detalheDescricao {
+        margin-bottom: 28px;
+    }
+
+    .btnConfirmarPresente {
+        max-width: none;
+    }
+}
+.spinnerBox {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+
+    border: 4px solid #dfe8da;
+    border-top-color: #1a251b;
+    border-radius: 50%;
+
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
