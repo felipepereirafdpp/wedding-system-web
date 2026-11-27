@@ -32,7 +32,7 @@ export default function Footer() {
                         <h2 className="tituloFooter">CONTATO</h2>
                         <ul className="listaFooter">
                             <li><a href="mailto:thaispastori@gmail.com">thaispastori@gmail.com</a></li>
-                            <li><a href="tel:1699990000">1699990000</a></li>
+                            <li><a href="tel:1699990000">(16) 99717-9656</a></li>
                         </ul>
                     </div>
 

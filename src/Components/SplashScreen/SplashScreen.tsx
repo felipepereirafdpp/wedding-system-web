@@ -38,7 +38,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
                 </svg>
 
                 <div className="frameContent">
-                    <h1 className="frameMonogram">T & J</h1>
+                    <h1 className="frameMonogram">T & JH</h1>
                     <span className="frameLine"></span>
                     <p className="frameDate">17 . 04 . 2027</p>
                 </div>

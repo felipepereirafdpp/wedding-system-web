@@ -1,7 +1,7 @@
 import "./location.css";
 
 const Location = () => {
-  const address = "Rua Joao Carvalho , 135"; // alterar o endereço, NECESSáRIO passar o número.
+  const address = "Radaeli Eventos"; // alterar o endereço, NECESSáRIO passar o número.
 
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     address
@@ -32,7 +32,7 @@ const Location = () => {
           </div>
           <div className="location-info-text">
             <span>Horário</span>
-            <p>A partir das 18h20 · até o amanhecer</p>
+            <p>12:00 · até Anoitecer</p>
           </div>
         </div>
 
@@ -45,7 +45,7 @@ const Location = () => {
           </div>
           <div className="location-info-text">
             <span>Local</span>
-            <p>Estrada da Cantareira, 1200</p>
+            <p>Radaeli Eventos</p>
           </div>
         </div>
 
@@ -57,7 +57,7 @@ const Location = () => {
           </div>
           <div className="location-info-text">
             <span>Traje</span>
-            <p>Esporte fino, em tons terrosos</p>
+            <p>Traje Dress Code/Esporte Fino</p>
           </div>
         </div>
       </div>

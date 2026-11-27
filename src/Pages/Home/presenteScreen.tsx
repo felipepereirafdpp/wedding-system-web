@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import type { IPresents } from "../../interface/IPresents";
 import FuncoesTela from "../../Hooks/Presents/usePresents";
 
+
 export default function PresenteScreen() {
     const navigate = useNavigate();
 
@@ -38,12 +39,14 @@ export default function PresenteScreen() {
                 <Header
                     onNavigate={() => navigate("/")}
                     cursor="pointer"
-                    
+
                 />
             </header>
 
             {loading ? (
                 <main className="loadingScreen">
+
+
 
                     <div className="loadingContent">
 
@@ -71,7 +74,13 @@ export default function PresenteScreen() {
             ) : (
                 <main className="presentesMain">
 
+
                     <section className="containerPrincipal">
+
+                        <section className="title-presents">
+                            <h5>LISTA DE PRESENTES</h5>
+                            <h2>ESCOLHA UM PRESENTE</h2>
+                        </section>
 
                         <section className="cards">
 
@@ -98,7 +107,10 @@ export default function PresenteScreen() {
                                             R$ {presente.pricePresent}
                                         </p>
 
-                                        <button className="btnPresentear">
+                                        <button
+                                            className="btnPresentear"
+                                            onClick={() => navigate(`/presente/${presente.id}`)}
+                                        >
                                             Presentear
                                         </button>
 
